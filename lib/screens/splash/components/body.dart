@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/constants.dart';
+import 'package:shop_app/core/constants/color_constants.dart';
+import 'package:shop_app/core/constants/constants.dart';
+import 'package:shop_app/core/constants/size_constants.dart';
 import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
 import 'package:shop_app/size_config.dart';
 
@@ -16,16 +18,16 @@ class _BodyState extends State<Body> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
-      "text": "Welcome to Tokoto, Let’s shop!",
+      "text": "Chào mừng bạn đến với Veca!",
       "image": "assets/images/splash_1.png"
     },
     {
       "text":
-          "We help people conect with store \naround United State of America",
+          "Chúng tôi giúp mọi người kết nối \nvới cửa hàng trên khắp Việt Nam",
       "image": "assets/images/splash_2.png"
     },
     {
-      "text": "We show the easy way to shop. \nJust stay at home with us",
+      "text": "Chúng tôi chỉ cho bạn cách mua bán dễ dàng. \nChỉ cần ở nhà với chúng tôi",
       "image": "assets/images/splash_3.png"
     },
   ];
@@ -68,7 +70,7 @@ class _BodyState extends State<Body> {
                     ),
                     Spacer(flex: 3),
                     DefaultButton(
-                      text: "Continue",
+                      text: "Bắt đầu".toUpperCase(),
                       press: () {
                         Navigator.pushNamed(context, SignInScreen.routeName);
                       },
@@ -88,8 +90,8 @@ class _BodyState extends State<Body> {
     return AnimatedContainer(
       duration: kAnimationDuration,
       margin: EdgeInsets.only(right: 5),
-      height: 6,
-      width: currentPage == index ? 20 : 6,
+      height: 4,
+      width: currentPage == index ? 16 : 4,
       decoration: BoxDecoration(
         color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
         borderRadius: BorderRadius.circular(3),

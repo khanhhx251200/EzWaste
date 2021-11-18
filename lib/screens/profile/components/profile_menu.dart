@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_app/core/constants/color_constants.dart';
+import 'package:shop_app/core/constants/size_constants.dart';
 
-import '../../../constants.dart';
+import '../../../core/constants/strings_constant.dart';
 
 class ProfileMenu extends StatelessWidget {
   const ProfileMenu({
@@ -23,7 +25,7 @@ class ProfileMenu extends StatelessWidget {
           primary: kPrimaryColor,
           padding: EdgeInsets.all(20),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(defaultPadding)),
           backgroundColor: Color(0xFFF5F6F9),
         ),
         onPressed: press,

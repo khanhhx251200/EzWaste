@@ -3,10 +3,10 @@ import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
+import 'package:shop_app/screens/otp/otp_screen.dart';
 
-import '../../../constants.dart';
+import '../../../core/constants/strings_constant.dart';
 import '../../../size_config.dart';
-
 
 class SignUpForm extends StatefulWidget {
   @override
@@ -15,10 +15,11 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-  String? email;
+  String? phone;
   String? password;
-  String? conform_password;
+  String? confirmPassword;
   bool remember = false;
+  bool _autoValidate=false;
   final List<String?> errors = [];
 
   void addError({String? error}) {
@@ -38,23 +39,28 @@ class _SignUpFormState extends State<SignUpForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      autovalidateMode: _autoValidate ? AutovalidateMode.onUserInteraction : AutovalidateMode.disabled ,
       key: _formKey,
       child: Column(
         children: [
-          buildEmailFormField(),
+          buildPhoneFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
-          buildConformPassFormField(),
+          buildConfirmPassFormField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
-            text: "Continue",
+            text: kSignUp,
             press: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
                 // if all are valid then go to success screen
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                Navigator.pushNamed(context, OtpScreen.routeName);
+              } else {
+                setState(() {
+                  _autoValidate=true;
+                });
               }
             },
           ),
@@ -63,31 +69,22 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
-  TextFormField buildConformPassFormField() {
+  TextFormField buildConfirmPassFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => conform_password = newValue,
-      onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: kPassNullError);
-        } else if (value.isNotEmpty && password == conform_password) {
-          removeError(error: kMatchPassError);
-        }
-        conform_password = value;
-      },
+      autovalidateMode: AutovalidateMode.disabled,
+      onSaved: (newValue) => confirmPassword = newValue,
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error: kPassNullError);
-          return "";
+          return kPassNullError;
         } else if ((password != value)) {
-          addError(error: kMatchPassError);
-          return "";
+          return kMatchPassError;
         }
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Confirm Password",
-        hintText: "Re-enter your password",
+        labelText: "Xác nhận mật khẩu",
+        hintText: "Nhập lại mật khẩu ",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -100,64 +97,42 @@ class _SignUpFormState extends State<SignUpForm> {
     return TextFormField(
       obscureText: true,
       onSaved: (newValue) => password = newValue,
-      onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: kPassNullError);
-        } else if (value.length >= 8) {
-          removeError(error: kShortPassError);
-        }
+      onChanged: (value) => setState(() {
         password = value;
-      },
+      }),
       validator: (value) {
-        if (value!.isEmpty) {
-          addError(error: kPassNullError);
-          return "";
-        } else if (value.length < 8) {
-          addError(error: kShortPassError);
-          return "";
+        if(value!.isEmpty){
+          return kPassNullError;
         }
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Password",
-        hintText: "Enter your password",
+        labelText: kPassword,
+        hintText: "Nhập mật khẩu",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
     );
   }
 
-  TextFormField buildEmailFormField() {
+  TextFormField buildPhoneFormField() {
     return TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue) => email = newValue,
-      onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: kEmailNullError);
-        } else if (emailValidatorRegExp.hasMatch(value)) {
-          removeError(error: kInvalidEmailError);
-        }
-        return null;
-      },
+      keyboardType: TextInputType.phone,
+      onSaved: (newValue) => phone = newValue,
       validator: (value) {
         if (value!.isEmpty) {
-          addError(error: kEmailNullError);
-          return "";
-        } else if (!emailValidatorRegExp.hasMatch(value)) {
-          addError(error: kInvalidEmailError);
-          return "";
+          return kPhone;
         }
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Email",
-        hintText: "Enter your email",
+        labelText: kPhone,
+        hintText: "Nhập số điện thoại",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/constants.dart';
+import 'package:shop_app/core/constants/color_constants.dart';
+import 'package:shop_app/core/constants/constants.dart';
 import 'package:shop_app/size_config.dart';
 
 import 'otp_form.dart';
@@ -17,10 +18,10 @@ class Body extends StatelessWidget {
             children: [
               SizedBox(height: SizeConfig.screenHeight * 0.05),
               Text(
-                "OTP Verification",
+                "Xác minh OTP",
                 style: headingStyle,
               ),
-              Text("We sent your code to +1 898 860 ***"),
+              Text("Chúng tôi gửi mã xác nhận đến +84 898 860 ***"),
               buildTimer(),
               OtpForm(),
               SizedBox(height: SizeConfig.screenHeight * 0.1),
@@ -29,7 +30,7 @@ class Body extends StatelessWidget {
                   // OTP code resend
                 },
                 child: Text(
-                  "Resend OTP Code",
+                  "Gửi lại mã OTP",
                   style: TextStyle(decoration: TextDecoration.underline),
                 ),
               )
@@ -44,7 +45,7 @@ class Body extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("This code will expired in "),
+        Text("Mã này sẽ hết hạn sau "),
         TweenAnimationBuilder(
           tween: Tween(begin: 30.0, end: 0.0),
           duration: Duration(seconds: 30),
