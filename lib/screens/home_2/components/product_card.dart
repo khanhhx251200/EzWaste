@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/components/fav_btn.dart';
 import 'package:shop_app/components/price.dart';
 import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:shop_app/core/constants/strings_constant.dart';
 import 'package:shop_app/models/Product2.dart';
 
 
@@ -48,7 +49,7 @@ class ProductCard extends StatelessWidget {
             ),
             Row(
               children: [
-                Expanded(child: Price(amount: "5000")),
+                Expanded(child: Price(amount: convertIntToCurrency(product.price!))),
                 FavBtn(),
               ],
             )

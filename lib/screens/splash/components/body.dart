@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/core/constants/color_constants.dart';
 import 'package:shop_app/core/constants/constants.dart';
 import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:shop_app/core/constants/strings_constant.dart';
 import 'package:shop_app/screens/sign_in/sign_in_screen.dart';
 import 'package:shop_app/size_config.dart';
 
@@ -39,7 +40,7 @@ class _BodyState extends State<Body> {
         child: Column(
           children: <Widget>[
             Expanded(
-              flex: 3,
+              flex: 2,
               child: PageView.builder(
                 onPageChanged: (value) {
                   setState(() {
@@ -54,7 +55,6 @@ class _BodyState extends State<Body> {
               ),
             ),
             Expanded(
-              flex: 2,
               child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: getProportionateScreenWidth(20)),
@@ -70,7 +70,7 @@ class _BodyState extends State<Body> {
                     ),
                     Spacer(flex: 3),
                     DefaultButton(
-                      text: "Bắt đầu".toUpperCase(),
+                      text: kStart.toUpperCase(),
                       press: () {
                         Navigator.pushNamed(context, SignInScreen.routeName);
                       },
@@ -89,9 +89,9 @@ class _BodyState extends State<Body> {
   AnimatedContainer buildDot({int? index}) {
     return AnimatedContainer(
       duration: kAnimationDuration,
-      margin: EdgeInsets.only(right: 5),
-      height: 4,
-      width: currentPage == index ? 16 : 4,
+      margin: EdgeInsets.only(right: 8),
+      height: 6,
+      width: currentPage == index ? 24 : 8,
       decoration: BoxDecoration(
         color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
         borderRadius: BorderRadius.circular(3),

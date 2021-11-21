@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:shop_app/core/constants/strings_constant.dart';
 import 'package:shop_app/models/Product2.dart';
 import 'package:shop_app/models/ProductItem.dart';
 
@@ -15,14 +17,18 @@ class HomeProvider extends ChangeNotifier {
   }
 
   void addProductToCart(Product2 product) {
+    print('add product');
     for (ProductItem item in cart) {
       if (item.product!.title == product.title) {
+        print('add increment');
+
         item.increment();
         notifyListeners();
         return;
       }
     }
     cart.add(ProductItem(product: product));
+    print('card: $cart');
     notifyListeners();
   }
 
@@ -38,21 +44,21 @@ class HomeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  int getQuantity(Product2 product){
+  int getQuantity(Product2 product) {
     for (ProductItem item in cart) {
       if (item.product!.title == product.title) {
         return item.quantity;
       }
     }
-    return 1;
+    return 0;
   }
 
-  int totalBill(){
+  String totalBill() {
     int total = 0;
-    for (int i =0; i<  cart.length; i++) {
+    for (int i = 0; i < cart.length; i++) {
       total += cart[i].quantity * cart[i].product!.price!;
     }
-    return total;
+    return convertIntToCurrency(total);
   }
 
   int totalCartItems() => cart.fold(

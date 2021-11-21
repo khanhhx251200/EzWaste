@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/fav_btn.dart';
 import 'package:shop_app/components/price.dart';
+import 'package:shop_app/core/constants/color_constants.dart';
 import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:shop_app/core/constants/strings_constant.dart';
 import 'package:shop_app/models/Product2.dart';
 import 'package:shop_app/screens/deatils/provider/detail_provider.dart';
 import 'package:shop_app/screens/home_2/provider/home_provider.dart';
@@ -35,6 +38,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
   DetailProvider provider = DetailProvider();
 
   @override
+  void initState() {
+    super.initState();
+    print('first: ${widget.quantity}');
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: SafeArea(
@@ -46,31 +55,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
             child: DefaultButton(
               text: "Thêm vào Giỏ hàng",
               press: () {
-                int count = 0;
-                print('first: ${widget.quantity}');
-                if(provider.quantityProduct != 1){
-                  count = widget.quantity - provider.quantityProduct;
+                if (provider.quantityProduct == 0) {
+                  showToast('Vui lòng chọn số lượng!',
+                      position:  StyledToastPosition.center,
+                      backgroundColor: kPrimaryColor, context: context);
                 } else {
-                  count = 1;
+                  setToCart(context);
                 }
-
-                if (widget.quantity < provider.quantityProduct) {
-                  for (int i = 0; i <= -count; i++) {
-                    widget.onProductAdd();
-                  }
-                } else if (widget.quantity > provider.quantityProduct) {
-                  for (int i = 0; i < count; i++) {
-                    widget.onProductRemove();
-                  }
-                } else if(widget.quantity == 1 && provider.quantityProduct == 1) {
-                  widget.onProductAdd();
-                }
-                print('count: $count');
-
-                setState(() {
-                  _cartTag = '_cartTag';
-                });
-                Navigator.pop(context);
               },
             ),
           ),
@@ -119,7 +110,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Price(amount: "5000"),
+                  Price(amount: convertIntToCurrency(widget.product.price!)),
                 ],
               ),
             ),
@@ -137,6 +128,37 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ),
       ),
     );
+  }
+
+  void setToCart(BuildContext context) {
+    print('first: ${widget.quantity}');
+    print('end: ${provider.quantityProduct}');
+    int count = 0;
+    if (provider.quantityProduct != 0) {
+      count = widget.quantity - provider.quantityProduct;
+    } else {
+      count = 1;
+    }
+
+    if (widget.quantity < provider.quantityProduct) {
+
+      for (int i = 0; i < -count; i++) {
+        print('for');
+        widget.onProductAdd();
+      }
+    } else if (widget.quantity > provider.quantityProduct) {
+      for (int i = 0; i < count; i++) {
+        widget.onProductRemove();
+      }
+    } else if (widget.quantity == 1 && provider.quantityProduct == 1) {
+      widget.onProductAdd();
+    }
+    print('count: $count');
+
+    setState(() {
+      _cartTag = '_cartTag';
+    });
+    Navigator.pop(context);
   }
 
   AppBar buildAppBar() {

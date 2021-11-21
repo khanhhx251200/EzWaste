@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/price.dart';
 import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:shop_app/core/constants/strings_constant.dart';
 import 'package:shop_app/models/ProductItem.dart';
 
 
@@ -15,7 +16,7 @@ class CartDetailsViewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding:  EdgeInsets.symmetric(vertical: padding20 / 2),
+      contentPadding: EdgeInsets.symmetric(vertical: padding20 / 2),
       leading: CircleAvatar(
         radius: 25,
         backgroundColor: Colors.white,
@@ -31,7 +32,7 @@ class CartDetailsViewCard extends StatelessWidget {
       trailing: FittedBox(
         child: Row(
           children: [
-            Price(amount: "20"),
+            Price(amount: convertIntToCurrency(productItem.product!.price!)),
             Text(
               "  x ${productItem.quantity}",
               style: Theme.of(context)

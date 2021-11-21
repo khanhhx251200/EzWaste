@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 const String kEmailNullError = "Please Enter your email";
 const String kInvalidEmailError = "Please Enter Valid Email";
 const String kPassNullError = "Vui lòng nhập mật khẩu";
@@ -12,7 +14,18 @@ const String kPassword = "Mật khẩu";
 const String kSignIn = "Đăng nhập";
 const String kSignUp = "Đăng ký";
 const String kRegisterAccount = "Đăng ký tài khoản";
+const String kProfile = "Trang cá nhân";
+const String kMyAccount = "Tài khoản của tôi";
+const String kNotifications = "Thông báo";
+const String kSettings = "Cài đặt";
+const String kHelpCenter = "Trung tâm hỗ trợ";
+const String kLogOut = "Đăng xuất";
+const String kStart = "Bắt đầu";
 
 // Form Error
 final RegExp emailValidatorRegExp =
 RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+
+convertIntToCurrency(int currency){
+  return NumberFormat.currency(locale: "vi").format(currency);
+}

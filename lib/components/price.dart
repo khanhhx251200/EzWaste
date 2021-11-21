@@ -20,10 +20,6 @@ class Price extends StatelessWidget {
             .copyWith(fontWeight: FontWeight.w600, color: kPrimaryColor),
         children: [
           TextSpan(
-            text: " đ",
-            style: TextStyle(color: Colors.black),
-          ),
-          TextSpan(
             text: "/kg",
             style:
                 TextStyle(color: Colors.black26, fontWeight: FontWeight.normal),

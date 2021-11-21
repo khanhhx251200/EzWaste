@@ -10,12 +10,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text(kSignUp),
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-                gradient: kPrimaryGradientColor),
-          )),
+      appBar: AppBar(),
       body: Body(),
     );
   }
