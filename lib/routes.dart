@@ -5,7 +5,6 @@ import 'package:shop_app/screens/booking/components/booking_success.dart';
 import 'package:shop_app/screens/change_password/change_password_screen.dart';
 import 'package:shop_app/screens/change_password/components/change_password_success.dart';
 import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
-import 'package:shop_app/screens/edit_profile/edit_profile_screen.dart';
 import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
 import 'package:shop_app/screens/history/components/agree_order_fragment.dart';
 import 'package:shop_app/screens/history/components/confirm_order.dart';
@@ -47,7 +46,6 @@ final Map<String, WidgetBuilder> routes = {
   OtpScreen.routeName: (context) => OtpScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
   ProfileScreen.routeName: (context) => ProfileScreen(),
-  EditProfileScreen.routeName: (context) => EditProfileScreen(),
   NotificationsScreen.routeName: (context) => NotificationsScreen(),
   SellScreen.routeName: (context) => SellScreen(),
   HistoryScreen.routeName: (context) => HistoryScreen(),

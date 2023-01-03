@@ -31,6 +31,8 @@ class Logging extends Interceptor {
     print(
       'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}',
     );
+    print('ERROR: ${err.response!.data['message']}');
+    showToastWithOutContext(message: err.response!.data['message']);
     if (err.response?.statusCode == 403) {
       FlutterSecureStorage().deleteAll();
       navigatorKey.currentState!.pushNamedAndRemoveUntil(

@@ -11,6 +11,7 @@
         android:label="EZ Waste"
         android:icon="@mipmap/logo_app">
         <activity
+            android:exported="true"
             android:showWhenLocked="true"
             android:turnScreenOn="true"
             android:name=".MainActivity"

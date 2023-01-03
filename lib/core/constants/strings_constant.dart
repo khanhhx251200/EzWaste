@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:shop_app/models/time_sell.dart';
 
 const String kAppName = "EZ Waste";
+const String kServerError = "Lỗi hệ thống";
 const String kEmailNullError = "Please Enter your email";
 const String kInvalidEmailError = "Please Enter Valid Email";
 const String kPassNullError = "Vui lòng nhập mật khẩu";

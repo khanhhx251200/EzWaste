@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
-import 'package:shop_app/components/default_button.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shop_app/core/constants/color_constants.dart';
+import 'package:shop_app/core/constants/size_constants.dart';
 import 'package:shop_app/core/constants/strings_constant.dart';
 
 showToastInApp(BuildContext context, String content,
@@ -54,5 +55,17 @@ showDialogConfirm(BuildContext context) {
         ],
       );
     },
+  );
+}
+
+showToastWithOutContext(
+    {String message = '', Color backgroundColor = kPrimaryColor}) {
+  Fluttertoast.showToast(
+    msg: message,
+    toastLength: Toast.LENGTH_LONG,
+    timeInSecForIosWeb: 1,
+    backgroundColor: backgroundColor,
+    textColor: kWhiteColor,
+    fontSize: size16,
   );
 }

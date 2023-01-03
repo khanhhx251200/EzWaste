@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shop_app/components/fab_bottom_appbar.dart';
 import 'package:shop_app/core/constants/color_constants.dart';
 import 'package:shop_app/core/constants/size_constants.dart';
 import 'package:shop_app/core/constants/strings_constant.dart';
 import 'package:shop_app/screens/booking/booking_screen.dart';
-import 'package:shop_app/screens/edit_profile/edit_profile_screen.dart';
 import 'package:shop_app/screens/home/activities/activities_page.dart';
 import 'package:shop_app/screens/home/components/wallet_and_points.dart';
 import 'package:shop_app/screens/home/provider/home_provider.dart';
-import 'package:shop_app/screens/learderboard/leaderboard_screen.dart';
 import 'package:shop_app/screens/notifications/notifications_screen.dart';
 import 'package:shop_app/screens/profile/profile_screen.dart';
 import 'package:shop_app/screens/profile_information/profile_information_screen.dart';
-import 'package:shop_app/screens/sell/sell_screen.dart';
 
 import 'components/body.dart';
 import 'package:provider/provider.dart';

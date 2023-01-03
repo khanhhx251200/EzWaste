@@ -17,7 +17,6 @@ class AppbarDashboard extends StatelessWidget {
       //   icon: Icon(Icons.menu),
       // ),
       centerTitle: true,
-      automaticallyImplyLeading: false,
       title: Image.asset('assets/icons/logo_waste.png', height: 48),
       actions: [
         // GestureDetector(

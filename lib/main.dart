@@ -7,7 +7,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/core/auth_provider.dart';
 import 'package:shop_app/routes.dart';
-import 'package:shop_app/screens/edit_profile/provider/edit_profile_provider.dart';
 import 'package:shop_app/screens/history/provider/evaluate_provider.dart';
 import 'package:shop_app/screens/history/provider/history_provider.dart';
 import 'package:shop_app/screens/home/activities/provider/activities_provider.dart';
@@ -41,7 +40,6 @@ void main() async {
       ChangeNotifierProvider(create: (_) => HistoryProvider()),
       ChangeNotifierProvider(create: (_) => SellProvider()),
       ChangeNotifierProvider(create: (_) => HomeProvider()),
-      ChangeNotifierProvider(create: (_) => EditProfileProvider()),
       ChangeNotifierProvider(create: (_) => EvaluateProvider()),
       ChangeNotifierProvider(create: (_) => LeaderBoardProvider()),
       ChangeNotifierProvider(create: (_) => ActivitiesProvider()),
