@@ -3,18 +3,12 @@ import 'package:shop_app/core/constants/color_constants.dart';
 import 'package:shop_app/size_config.dart';
 
 
-
-
 final headingStyle = TextStyle(
   fontSize: getProportionateScreenWidth(28),
   fontWeight: FontWeight.bold,
   color: Colors.black,
   height: 1.5,
 );
-
-
-
-
 
 final otpInputDecoration = InputDecoration(
   contentPadding:
@@ -30,3 +24,7 @@ OutlineInputBorder outlineInputBorder() {
     borderSide: BorderSide(color: kTextColor),
   );
 }
+
+dynamic valueByType(type, valueOrganic, valuePlastic) =>
+    type == 2 ? valuePlastic : valueOrganic;
+

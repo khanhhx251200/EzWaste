@@ -5,31 +5,28 @@ import 'package:shop_app/core/constants/size_constants.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: Colors.white,
-    fontFamily: "Muli",
+    fontFamily: "NotoSans",
     appBarTheme: appBarTheme(),
-    textTheme: textTheme(),
-    inputDecorationTheme: inputDecorationTheme(),
-    visualDensity: VisualDensity.adaptivePlatformDensity,
+    primaryColor: kPrimaryColor,
+    // textTheme: textTheme(),
+    visualDensity: VisualDensity.adaptivePlatformDensity
   );
 }
 
 InputDecorationTheme inputDecorationTheme() {
   OutlineInputBorder outlineInputBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(defaultPadding),
+    borderRadius: BorderRadius.circular(size8),
     borderSide: BorderSide(color: kTextColor),
-    gapPadding: defaultPadding,
+    gapPadding: size8,
   );
   return InputDecorationTheme(
     // If  you are using latest version of flutter then lable text and hint text shown like this
     // if you r using flutter less then 1.20.* then maybe this is not working properly
     // if we are define our floatingLabelBehavior in our theme then it's not applayed
     floatingLabelBehavior: FloatingLabelBehavior.always,
-    isDense: true,
-    contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
     enabledBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,
-    border: outlineInputBorder,
+    border: InputBorder.none,
     floatingLabelStyle: TextStyle(color: kPrimaryColor)
   );
 }
@@ -45,9 +42,9 @@ AppBarTheme appBarTheme() {
   return AppBarTheme(
     color: kWhiteColor,
     elevation: 0,
-    brightness: Brightness.light,
+    brightness: Brightness.dark,
     centerTitle: true,
-    iconTheme: IconThemeData(color: kPrimaryColor),
-    titleTextStyle:   TextStyle(color: kPrimaryColor, fontSize: 20),
+    iconTheme: IconThemeData(color: kGreyColor),
+    titleTextStyle:   TextStyle(color: kWhiteColor, fontSize: size16),
   );
 }

@@ -1,12 +1,14 @@
+import 'package:provider/provider.dart';
+
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/custom_surfix_icon.dart';
-import 'package:shop_app/components/form_error.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_app/components/loading_widget.dart';
+import 'package:shop_app/core/auth_provider.dart';
 import 'package:shop_app/core/constants/color_constants.dart';
 import 'package:shop_app/core/constants/size_constants.dart';
 import 'package:shop_app/helper/keyboard.dart';
-import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
-import 'package:shop_app/screens/home/home_screen.dart';
-import 'package:shop_app/screens/login_success/login_success_screen.dart';
+import 'package:shop_app/models/user.dart';
+import 'package:shop_app/screens/home/provider/home_provider.dart';
 
 import '../../../components/default_button.dart';
 import '../../../core/constants/strings_constant.dart';
@@ -19,111 +21,158 @@ class SignInForm extends StatefulWidget {
 
 class _SignInFormState extends State<SignInForm> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController userNameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   String? phone;
   String? password;
   bool? remember = false;
 
-
+  signIn(AuthProvider provider) async {
+    try {
+      UserInfo user = await provider.signIn(
+          context, userNameController.text, passwordController.text);
+      if(user != null) {
+        context.read<HomeProvider>().setUserInfo(user);
+      }
+    } catch (e) {}
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          buildPhoneFormField(),
-          SizedBox(height: getProportionateScreenHeight(30)),
-          buildPasswordFormField(),
-          SizedBox(height: getProportionateScreenHeight(30)),
-          Row(
+    return Consumer<AuthProvider>(
+      builder: (context, provider, child) {
+        return Form(
+          key: _formKey,
+          child: Column(
             children: [
-              Checkbox(
-                value: remember,
-                activeColor: kPrimaryColor,
-                onChanged: (value) {
-                  setState(() {
-                    remember = value;
-                  });
-                },
-              ),
-              Text("Nhớ mật khẩu"),
-              Spacer(),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                    context, ForgotPasswordScreen.routeName),
-                child: Text(
-                  "Quên mật khẩu",
-                  style: TextStyle(decoration: TextDecoration.underline),
-                ),
-              )
+              buildPhoneFormField(),
+              SizedBox(height: getProportionateScreenHeight(size20)),
+              buildPasswordFormField(provider),
+              SizedBox(height: getProportionateScreenHeight(size20)),
+              // Row(
+              //   children: [
+              //     Checkbox(
+              //       value: remember,
+              //       activeColor: kPrimaryColor,
+              //       onChanged: (value) {
+              //         setState(() {
+              //           remember = value;
+              //         });
+              //       },
+              //     ),
+              //     Text("Nhớ mật khẩu"),
+              //     Spacer(),
+              //     GestureDetector(
+              //       onTap: () => Navigator.pushNamed(
+              //           context, ForgotPasswordScreen.routeName),
+              //       child: Text(
+              //         "Quên mật khẩu",
+              //         style: TextStyle(decoration: TextDecoration.underline),
+              //       ),
+              //     )
+              //   ],
+              // ),
+              // SizedBox(height: getProportionateScreenHeight(20)),
+              provider.isLoading
+                  ? LoadingWidget(color: kPrimaryColor)
+                  : SizedBox(
+                      width: getProportionateScreenWidth(double.infinity),
+                      child: DefaultButton(
+                        text: "Đăng nhập",
+                        press: () {
+                          if (_formKey.currentState!.validate()) {
+                            _formKey.currentState!.save();
+                            // if all are valid then go to success screen
+                            KeyboardUtil.hideKeyboard(context);
+                            signIn(provider);
+                          }
+                        },
+                      ),
+                    ),
             ],
           ),
-          SizedBox(height: getProportionateScreenHeight(20)),
-          DefaultButton(
-            text: "Đăng nhập",
-            press: () {
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-                // if all are valid then go to success screen
-                KeyboardUtil.hideKeyboard(context);
-                Navigator.pushNamed(context, HomeScreen.routeName);
+        );
+      },
+    );
+  }
+
+  Row buildPasswordFormField(AuthProvider provider) {
+    return Row(
+      children: [
+        SvgPicture.asset('assets/icons/Lock.svg'),
+        SizedBox(width: size14),
+        Expanded(
+          child: TextFormField(
+            controller: passwordController,
+            obscureText: true,
+            textInputAction: TextInputAction.done,
+            onSaved: (newValue) => password = newValue,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            onFieldSubmitted: (value) => signIn(provider),
+            onChanged: (newValue) => phone = newValue,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "$kPassNullError";
               }
+              return null;
             },
+            style: TextStyle(
+                color: kTextFieldSecondColor, fontWeight: FontWeight.bold),
+            decoration: InputDecoration(
+              hintText: "Nhập mật khẩu",
+              hintStyle: TextStyle(
+                color: Colors.grey,
+                fontSize: null,
+                fontWeight: FontWeight.w400,
+                fontStyle: FontStyle.normal,
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: kPrimaryColor),
+              ),
+            ),
           ),
-        ],
-      ),
-    );
-  }
-
-  TextFormField buildPasswordFormField() {
-    return TextFormField(
-      obscureText: true,
-      onSaved: (newValue) => password = newValue,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "$kPassNullError";
-        } else if (value.length < 8) {
-          return kShortPassError;
-        }
-        return null;
-      },
-      decoration: InputDecoration(
-        labelText: "Mật khẩu",
-        hintText: "Nhập mật khẩu",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
-      ),
-    );
-  }
-
-  TextFormField buildPhoneFormField() {
-    return TextFormField(
-      keyboardType: TextInputType.phone,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      onSaved: (newValue) => phone = newValue,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return kPhoneNumberNullError;
-        }
-        return null;
-      },
-      decoration: InputDecoration(
-        labelText: "Số điện thoại",
-        hintText: "Nhập số điện thoại",
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(defaultPadding),
         ),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(defaultPadding)),
-            borderSide: BorderSide(color: kPrimaryColor)),
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
-      ),
+      ],
+    );
+  }
+
+  Row buildPhoneFormField() {
+    return Row(
+      children: [
+        SvgPicture.asset('assets/icons/Phone.svg'),
+        SizedBox(width: size14),
+        Expanded(
+          child: TextFormField(
+            controller: userNameController,
+            keyboardType: TextInputType.phone,
+            textInputAction: TextInputAction.next,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            onSaved: (newValue) => phone = newValue,
+            onChanged: (newValue) => phone = newValue,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return kPhoneNumberNullError;
+              }
+              return null;
+            },
+            style: TextStyle(
+                color: kTextFieldSecondColor, fontWeight: FontWeight.bold),
+            decoration: InputDecoration(
+              hintText: "Nhập số điện thoại",
+              hintStyle: TextStyle(
+                color: Colors.grey,
+                fontSize: null,
+                fontWeight: FontWeight.w400,
+                fontStyle: FontStyle.normal,
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: kPrimaryColor),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

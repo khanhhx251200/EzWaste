@@ -1,43 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_app/core/constants/color_constants.dart';
+import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_app/screens/home/provider/home_provider.dart';
+import 'package:shop_app/screens/profile_information/profile_information_screen.dart';
 
 class ProfilePic extends StatelessWidget {
-  const ProfilePic({
+  ProfilePic({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 115,
-      width: 115,
-      child: Stack(
-        fit: StackFit.expand,
-        clipBehavior: Clip.none,
+    return GestureDetector(
+      onTap: () => Navigator.pushNamed(context, ProfileInformationScreen.routeName),
+      child: Row(
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage("assets/images/Profile Image.png"),
+            radius: 30,
+            backgroundImage: AssetImage("assets/images/profile.png"),
           ),
-          Positioned(
-            right: -16,
-            bottom: 0,
-            child: SizedBox(
-              height: 46,
-              width: 46,
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50),
-                    side: BorderSide(color: Colors.white),
-                  ),
-                  primary: Colors.white,
-                  backgroundColor: Color(0xFFF5F6F9),
-                ),
-                onPressed: () {},
-                child: SvgPicture.asset("assets/icons/Camera Icon.svg"),
+          SizedBox(width: size8),
+          Expanded(
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                context.read<HomeProvider>().userInfo!.fullName,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: kBlackColor,
+                    fontSize: size16),
               ),
-            ),
-          )
+              SizedBox(height: size8),
+              Text(
+                context.read<HomeProvider>().userInfo!.userName!,
+                style: TextStyle(color: kTextColor, fontSize: size12),
+              )
+            ],
+          ))
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/core/constants/color_constants.dart';
 
 import '../../../core/constants/strings_constant.dart';
@@ -14,28 +15,10 @@ class SplashContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Spacer(),
-        Text(
-          "TOKOTO",
-          style: TextStyle(
-            fontSize: getProportionateScreenWidth(36),
-            color: kPrimaryColor,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          text!,
-          textAlign: TextAlign.center,
-        ),
-        Spacer(flex: 2),
-        Image.asset(
-          image!,
-          height: getProportionateScreenHeight(265),
-          width: getProportionateScreenWidth(235),
-        ),
-      ],
+    return SvgPicture.asset(
+      image!,
+      height: getProportionateScreenHeight(265),
+      width: getProportionateScreenWidth(235),
     );
   }
 }

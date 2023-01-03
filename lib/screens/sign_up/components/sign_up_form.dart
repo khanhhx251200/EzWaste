@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop_app/components/custom_surfix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
+import 'package:shop_app/components/loading_widget.dart';
+import 'package:shop_app/core/auth_provider.dart';
+import 'package:shop_app/core/constants/color_constants.dart';
 import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:shop_app/screens/otp/otp_screen.dart';
 
@@ -36,44 +40,57 @@ class _SignUpFormState extends State<SignUpForm> {
       });
   }
 
+  signUp(AuthProvider provider){
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      // if all are valid then go to success screen
+      provider.signUp(context, phone!, password!);
+      // Navigator.pushNamed(context, OtpScreen.routeName);
+    } else {
+      setState(() {
+        _autoValidate=true;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Form(
-      autovalidateMode: _autoValidate ? AutovalidateMode.onUserInteraction : AutovalidateMode.disabled ,
-      key: _formKey,
-      child: Column(
-        children: [
-          buildPhoneFormField(),
-          SizedBox(height: getProportionateScreenHeight(30)),
-          buildPasswordFormField(),
-          SizedBox(height: getProportionateScreenHeight(30)),
-          buildConfirmPassFormField(),
-          FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(40)),
-          DefaultButton(
-            text: kSignUp,
-            press: () {
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-                // if all are valid then go to success screen
-                Navigator.pushNamed(context, OtpScreen.routeName);
-              } else {
-                setState(() {
-                  _autoValidate=true;
-                });
-              }
-            },
-          ),
-        ],
-      ),
+    return Consumer<AuthProvider>(
+      builder: (context, provider, child) {
+       return Form(
+         autovalidateMode: _autoValidate ? AutovalidateMode.onUserInteraction : AutovalidateMode.disabled ,
+         key: _formKey,
+         child: Column(
+           children: [
+             buildPhoneFormField(),
+             SizedBox(height: getProportionateScreenHeight(30)),
+             buildPasswordFormField(),
+             SizedBox(height: getProportionateScreenHeight(30)),
+             buildConfirmPassFormField(provider),
+             FormError(errors: errors),
+             SizedBox(height: getProportionateScreenHeight(40)),
+             provider.isLoading ? LoadingWidget(color: kPrimaryColor) : SizedBox(
+               width: getProportionateScreenWidth(double.infinity),
+               height: getProportionateScreenHeight(40),
+               child: DefaultButton(
+                 text: kSignUp,
+                 press: () => signUp(provider),
+               ),
+             ),
+           ],
+         ),
+       );
+      } ,
     );
   }
 
-  TextFormField buildConfirmPassFormField() {
+  TextFormField buildConfirmPassFormField(AuthProvider provider) {
     return TextFormField(
       obscureText: true,
+      textInputAction: TextInputAction.done,
       autovalidateMode: AutovalidateMode.disabled,
       onSaved: (newValue) => confirmPassword = newValue,
+      onFieldSubmitted: (value) => signUp(provider),
       validator: (value) {
         if (value!.isEmpty) {
           return kPassNullError;
@@ -85,10 +102,7 @@ class _SignUpFormState extends State<SignUpForm> {
       decoration: InputDecoration(
         labelText: "Xác nhận mật khẩu",
         hintText: "Nhập lại mật khẩu ",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
     );
   }
@@ -96,6 +110,7 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
+      textInputAction: TextInputAction.next,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) => setState(() {
         password = value;
@@ -119,6 +134,7 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildPhoneFormField() {
     return TextFormField(
       keyboardType: TextInputType.phone,
+      textInputAction: TextInputAction.next,
       onSaved: (newValue) => phone = newValue,
       validator: (value) {
         if (value!.isEmpty) {
@@ -132,7 +148,6 @@ class _SignUpFormState extends State<SignUpForm> {
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
       ),
     );
   }
