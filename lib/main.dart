@@ -14,6 +14,7 @@ import 'package:shop_app/screens/home/provider/home_provider.dart';
 import 'package:shop_app/screens/learderboard/provider/leaderboard_provider.dart';
 import 'package:shop_app/screens/new_design/confirm_booking/provider/confirm_provider.dart';
 import 'package:shop_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
+import 'package:shop_app/screens/new_design/dashboash/home/provider/home_page_provider.dart';
 import 'package:shop_app/screens/sell/sell_provider.dart';
 import 'package:shop_app/screens/welcome/welcome_screen.dart';
 import 'package:shop_app/theme.dart';
@@ -40,6 +41,7 @@ void main() async {
       ChangeNotifierProvider(create: (_) => HistoryProvider()),
       ChangeNotifierProvider(create: (_) => SellProvider()),
       ChangeNotifierProvider(create: (_) => HomeProvider()),
+      ChangeNotifierProvider(create: (_) => HomePageProvider()),
       ChangeNotifierProvider(create: (_) => EvaluateProvider()),
       ChangeNotifierProvider(create: (_) => LeaderBoardProvider()),
       ChangeNotifierProvider(create: (_) => ActivitiesProvider()),

@@ -32,7 +32,7 @@ class BookingService {
     print('body: ' + jsonEncode(search.toJson()));
     try {
       final response = await _api.post(
-          UrlConstant.GET_BOOKINGS + "?page=1&size=100",
+          UrlConstant.GET_BOOKINGS + "?page=${search.page}&size=${search.size}",
           body: jsonEncode(search.toJson()));
       if (response.statusCode == 200) {
         final dataResponse = response.data['data'];

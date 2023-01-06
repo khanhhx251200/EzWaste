@@ -20,7 +20,7 @@ class BookingProvider extends ChangeNotifier {
 
   List<BoxSelection> _listStatus = [
     BoxSelection(
-        title: kNotCollect, isSelected: false, options: FILTER_WAIT_CONFIRM),
+        title: kNotCollect, isSelected: false, options: FILTER_NOT_COLLECT),
     BoxSelection(title: kRefuse, isSelected: false, options: FILTER_REFUSE),
     BoxSelection(title: kComplete, isSelected: false, options: FILTER_COMPLETE),
     BoxSelection(
@@ -87,7 +87,7 @@ class BookingProvider extends ChangeNotifier {
     final List<BoxSelection> types =
         _listType.where((element) => element.isSelected).toList();
     final status = _listStatus.where((element) => element.isSelected).toList();
-    return BookingSearch(types, status, _sortBy.options);
+    return BookingSearch(types, status, _sortBy.options, page: 1, size: 100);
   }
 
   getDetail(int id) async {

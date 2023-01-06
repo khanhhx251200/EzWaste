@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/components/decoration_border_shadow.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/core/constants/color_constants.dart';
+import 'package:shop_app/core/constants/constants.dart';
 import 'package:shop_app/core/constants/size_constants.dart';
 import 'package:shop_app/core/constants/strings_constant.dart';
 import 'package:shop_app/models/booking.dart';
@@ -91,10 +92,10 @@ class InfoPlastic extends StatelessWidget {
     return ListTile(
       leading: Icon(
         Icons.delete,
-        color: kPlasticColor,
+        color: valueByType(booking.type, kOrganicColor, kPlasticColor),
       ),
       title: Text(
-        kPlasticRecycle,
+        valueByType(booking.type, kOrganicRecycle, kPlasticRecycle),
         style: TextStyle(fontWeight: FontWeight.w500, fontSize: size14),
       ),
       trailing: booking.status! >= 3

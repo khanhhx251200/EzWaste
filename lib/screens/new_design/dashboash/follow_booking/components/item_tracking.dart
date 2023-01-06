@@ -21,8 +21,9 @@ class ItemTracking extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () async {
-        Provider.of<BookingProvider>(context, listen: false).getDetail(booking.id!);
+      onTap: () {
+        Provider.of<BookingProvider>(context, listen: false)
+            .getDetail(booking.id!);
         Navigator.pushNamed(context, DetailBookingScreen.routeName);
       },
       child: Container(
@@ -50,18 +51,29 @@ class ItemTracking extends StatelessWidget {
     return Column(
       children: [
         itemBody(
-            Icons.date_range, convertTimeStampToString(booking.dateBooking!)),
-        itemBody(Icons.location_on, booking.address!),
+            Icons.date_range, convertTimeStampToString(booking.dateBooking!),
+            colorIcon: valueByType(booking.type, kOrganicColor, kPlasticColor)),
+        itemBody(Icons.location_on, booking.address!,
+            colorIcon: valueByType(booking.type, kOrganicColor, kPlasticColor)),
         itemBody(Icons.delete_outline,
-            valueByType(booking.type, kOrganicRecycle, kPlasticRecycle)),
+            valueByType(booking.type, kOrganicRecycle, kPlasticRecycle),
+            colorIcon: valueByType(booking.type, kOrganicColor, kPlasticColor)),
         booking.status! >= 3
-            ? itemBody(const IconData(0xf24e, fontFamily: 'MaterialIcons'), booking.money.toString() + ' VNĐ')
+            ? itemBody(const IconData(0xf24e, fontFamily: 'MaterialIcons'),
+                booking.money.toString() + ' VNĐ',
+                colorIcon:
+                    valueByType(booking.type, kOrganicColor, kPlasticColor))
             : const SizedBox(),
         booking.status! >= 3
-            ? itemBody(const IconData(0xe235, fontFamily: 'MaterialIcons'), booking.mass.toString() + ' kg')
+            ? itemBody(const IconData(0xe235, fontFamily: 'MaterialIcons'),
+                booking.mass.toString() + ' kg',
+                colorIcon:
+                    valueByType(booking.type, kOrganicColor, kPlasticColor))
             : const SizedBox(),
         booking.noteSeller != null && booking.noteSeller != ''
-            ? itemBody(Icons.event_note, booking.noteSeller!.trim())
+            ? itemBody(Icons.event_note, booking.noteSeller!.trim(),
+                colorIcon:
+                    valueByType(booking.type, kOrganicColor, kPlasticColor))
             : SizedBox(),
         const Divider(),
         itemBody(statusIcon(booking.status!), statusString(booking.status!),

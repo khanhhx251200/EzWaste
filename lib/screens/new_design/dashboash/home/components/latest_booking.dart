@@ -17,7 +17,7 @@ class _LatestBookingState extends State<LatestBooking> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.only(top: size20, bottom: size20, left: size36),
+      padding: EdgeInsets.all(size20),
       color: kGreenColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +31,6 @@ class _LatestBookingState extends State<LatestBooking> {
           ),
           SizedBox(height: size8,),
           ListLatestBooking(),
-
         ],
       ),
     );
