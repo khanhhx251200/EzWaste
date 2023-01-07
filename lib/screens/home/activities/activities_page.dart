@@ -13,13 +13,13 @@ class ActivitiesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Consumer<ActivitiesProvider>(
-        builder: (context, value, child) {
+        builder: (context, provider, child) {
           return Container(
             color: kWhiteColor,
             child: Column(
-              children: const [
-                TitlePage(title: kMyChart),
-                Expanded(child: Body())
+              children:  [
+                const TitlePage(title: kMyChart),
+                Expanded(child: Body(provider: provider,))
               ],
             ),
           );

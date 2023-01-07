@@ -152,6 +152,9 @@ String convertDateToString(DateTime? dateTime) {
   return DateFormat('dd/MM/yyyy').format(dateTime!);
 }
 
+String convertDateToStringBackend(DateTime? dateTime) {
+  return DateFormat('yyyy-MM-dd').format(dateTime!);
+}
 
 String convertDateToNameOfDay(DateTime dateTime) {
   String nameOfDay = DateFormat('EEEE').format(dateTime);

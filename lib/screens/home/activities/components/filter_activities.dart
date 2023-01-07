@@ -19,7 +19,7 @@ class FilterActivities extends StatefulWidget {
 
 class _FilterActivitiesState extends State<FilterActivities> {
   final dateSearchController =
-      TextEditingController(text: '22/10/2022 - 22/12/2022');
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +51,7 @@ class _FilterActivitiesState extends State<FilterActivities> {
     } else {
       dateSearchController.text = '';
     }
+    provider.getStatistic();
   }
 
   TextField inputDateSearch() {

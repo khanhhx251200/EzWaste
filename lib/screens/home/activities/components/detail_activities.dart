@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/decoration_border_shadow.dart';
 import 'package:shop_app/core/constants/color_constants.dart';
 import 'package:shop_app/core/constants/size_constants.dart';
 import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/screens/new_design/dashboash/dashboash_screen.dart';
+import 'package:shop_app/screens/home/activities/provider/activities_provider.dart';
 
 class DetailActivities extends StatelessWidget {
   const DetailActivities({
     Key? key,
+    required this.provider,
   }) : super(key: key);
+  final ActivitiesProvider provider;
 
   @override
   Widget build(BuildContext context) {
@@ -17,22 +18,27 @@ class DetailActivities extends StatelessWidget {
       children: [
         labelActivities(kQuantityTaken),
         SizedBox(height: size36),
-        containerDetail('assets/images/capa.png', '8Kg', '10kg'),
+        containerDetail(
+            'assets/images/capa.png',
+            '${provider.statisticBooking!.sumMassSh} kg',
+            '${provider.statisticBooking!.sumMassTc} kg'),
         SizedBox(height: size36),
         labelActivities(kAmountReceived),
         SizedBox(height: size36),
         containerDetail(
-            'assets/images/100_green.png', '2,500,000 đ', '3,000,000 đ',
+            'assets/images/100_green.png',
+            '${provider.statisticBooking!.sumMoneySh} VNĐ',
+            '${provider.statisticBooking!.sumMoneyTc} VNĐ',
             isMoney: true)
       ],
     );
   }
 
-  GestureDetector containerDetail(String urlImage, String textOrganic, String textPlastic,
+  GestureDetector containerDetail(
+      String urlImage, String textOrganic, String textPlastic,
       {bool isMoney = false}) {
     return GestureDetector(
-      onTap: () {
-      },
+      onTap: () {},
       child: Row(
         children: [
           Expanded(flex: isMoney ? 1 : 2, child: Image.asset(urlImage)),
@@ -48,7 +54,8 @@ class DetailActivities extends StatelessWidget {
                 const SizedBox(
                   height: size20,
                 ),
-                boxDetail(kPlasticRecycle, kPlasticColor, textPlastic),
+                boxDetail(kPlasticRecycle, kPlasticColor, textPlastic,
+                    isMoney: isMoney),
               ],
             ),
           )
@@ -57,7 +64,8 @@ class DetailActivities extends StatelessWidget {
     );
   }
 
-  Container boxDetail(String label, Color color, String value) {
+  Container boxDetail(String label, Color color, String value,
+      {bool isMoney = false}) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: size8 / 2, horizontal: size8),
       decoration: BoxDecoration(
@@ -81,7 +89,11 @@ class DetailActivities extends StatelessWidget {
             ),
             margin: const EdgeInsets.all(size8),
             child: IconButton(
-              icon: Icon(Icons.delete, color: color),
+              icon: Icon(
+                  isMoney
+                      ? const IconData(0xf24e, fontFamily: 'MaterialIcons')
+                      : Icons.delete,
+                  color: color),
               onPressed: null,
             ),
           ),
@@ -94,7 +106,7 @@ class DetailActivities extends StatelessWidget {
                   value,
                   style: TextStyle(
                       color: color,
-                      fontSize: size20,
+                      fontSize: size16,
                       fontWeight: FontWeight.w700),
                 ),
                 Text(label, style: TextStyle(color: color, fontSize: size12))
