@@ -13,6 +13,7 @@ import 'package:shop_app/core/constants/key_constant.dart';
 import 'package:shop_app/core/constants/size_constants.dart';
 import 'package:shop_app/core/constants/strings_constant.dart';
 import 'package:shop_app/helper/ToastUtils.dart';
+import 'package:shop_app/screens/new_design/dashboash/account/components/wallet/action_box.dart';
 import 'package:shop_app/size_config.dart';
 
 class VerifyAuthenticate extends StatefulWidget {
@@ -53,7 +54,7 @@ class _VerifyAuthenticateState extends State<VerifyAuthenticate> {
     }
     if (Platform.isIOS) {
       List<BiometricType> availableBiometrics =
-          await LocalAuthApi.getBiometrics();
+      await LocalAuthApi.getBiometrics();
       if (availableBiometrics.contains(BiometricType.face)) {
         setState(() => isFaceID = true);
       }
@@ -67,53 +68,53 @@ class _VerifyAuthenticateState extends State<VerifyAuthenticate> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 48,
-      margin: EdgeInsets.all(8),
-      child: Row(
-        children: [
-          Container(
-              width: 40,
-              child: isFaceID
-                  ? Image.asset(
-                      'assets/icons/face-id.png',
-                      height: 40,
-                      width: 40,
-                      color: isLoginByBiometric ? kPrimaryColor : null,
-                    )
-                  : Icon(
-                      FontAwesomeIcons.fingerprint,
-                      size: 24,
-                      color: isLoginByBiometric ? kPrimaryColor : null,
-                    )),
-          SizedBox(width: size14),
-          Expanded(
-              child: Text(
-            isFaceID ? kLoginByFaceID : kLoginByFingerPrint,
-            style: TextStyle(
-                color: isLoginByBiometric ? kPrimaryColor : kBlackColor,
-                fontWeight: FontWeight.w600),
-          )),
-          SizedBox(width: getProportionateScreenWidth(4)),
-          FlutterSwitch(
-            width: 48.0,
-            height: size24,
-            valueFontSize: size32,
-            toggleSize: size24,
-            borderRadius: 30.0,
-            activeColor: kPrimaryColor,
-            onToggle: (val) async {
-              if (val) {
-                authenticate(val);
-              } else {
-                final result = await showDialogConfirm(context);
-                if (result) closeAuthenticateBiometric(val);
-              }
-            },
-            value: isLoginByBiometric,
+    return body();
+  }
+
+  body() {
+    return Row(
+      children: [ Container(
+          height: 40,
+          width: 40,
+          decoration: BoxDecoration(
+            color: kBackgroundGreyColor,
+            borderRadius: BorderRadius.all(Radius.circular(size16)),
           ),
-        ],
-      ),
+          child: isFaceID
+              ? Image.asset(
+            'assets/icons/face-id.png',
+            height: 40,
+            width: 40,
+            color: isLoginByBiometric ? kPrimaryColor : null,
+          )
+              : Icon(
+            FontAwesomeIcons.fingerprint,
+            size: 24,
+            color: isLoginByBiometric ? kPrimaryColor : null,
+          ),
+        ),
+        SizedBox(
+          width: size16,
+        ),
+        Expanded(child: Text(isFaceID ? kLoginByFaceID : kLoginByFingerPrint)),
+        FlutterSwitch(
+          width: size40,
+          height: size24,
+          valueFontSize: size24,
+          toggleSize: size18,
+          borderRadius: 30.0,
+          activeColor: kPrimaryColor,
+          onToggle: (val) async {
+            if (val) {
+              authenticate(val);
+            } else {
+              final result = await showDialogConfirm(context);
+              if (result) closeAuthenticateBiometric(val);
+            }
+          },
+          value: isLoginByBiometric,
+        )
+      ],
     );
   }
 }

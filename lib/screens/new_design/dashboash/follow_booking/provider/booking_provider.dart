@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/core/constants/strings_constant.dart';
 import 'package:shop_app/models/booking.dart';
 import 'package:shop_app/models/booking_search.dart';
+import 'package:shop_app/models/response_model.dart';
 import 'package:shop_app/screens/new_design/dashboash/follow_booking/components/box_selection.dart';
 import 'package:shop_app/services/booking_service.dart';
 
 class BookingProvider extends ChangeNotifier {
   final BookingService _bookingService = BookingService();
 
+  int _page = 1;
+  int _size = 10;
+  int _totalRecords = 0;
+  int _totalPage = 0;
   Booking? _bookingDetail;
   List<Booking> _listBooking = [];
 
@@ -44,10 +49,14 @@ class BookingProvider extends ChangeNotifier {
 
   Booking? get bookingDetail => _bookingDetail;
 
+  int get totalRecords => _totalRecords;
+
   BoxSelection _sortBy = BoxSelection(
       title: kNearestCollectTime, isSelected: true, options: SORT_BY_NEAR);
 
   BoxSelection get sortBy => _sortBy;
+
+  setPage(int page) => _page = page;
 
   setSortBy(BoxSelection selection) {
     _sortBy = selection;
@@ -77,8 +86,29 @@ class BookingProvider extends ChangeNotifier {
     _sortBy = BoxSelection(title: '', isSelected: true, options: '');
   }
 
+  clearBookings() {
+    _listBooking.clear();
+  }
+
   Future<List<Booking>> getBookings() async {
-    _listBooking = await _bookingService.getBookings(prepareBodySearch());
+    print('totalRecords: $_totalPage');
+
+    ResponseModel? res = await _bookingService.getBookings(prepareBodySearch());
+    if (res != null) {
+      _totalRecords = res.totalRecord;
+      _totalPage = res.totalPage;
+      if (res.objList != null) {
+        List<Booking> listBooking =
+            (res.objList as List).map((e) => Booking.fromJson(e)).toList();
+        if (_listBooking.length < _totalRecords) {
+          _listBooking.addAll(listBooking);
+        }
+
+        if (_page < _totalPage) {
+          _page++;
+        }
+      }
+    }
     notifyListeners();
     return _listBooking;
   }
@@ -87,7 +117,8 @@ class BookingProvider extends ChangeNotifier {
     final List<BoxSelection> types =
         _listType.where((element) => element.isSelected).toList();
     final status = _listStatus.where((element) => element.isSelected).toList();
-    return BookingSearch(types, status, _sortBy.options, page: 1, size: 100);
+    return BookingSearch(types, status, _sortBy.options,
+        page: _page, size: _size);
   }
 
   getDetail(int id) async {

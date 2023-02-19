@@ -25,6 +25,7 @@ const kFourLightColor = Color(0xFF454480);
 const kNoSelectButtonColor = Color(0xFFEFEFEF);
 const kNoSelectTextnColor = Color(0xFF686868);
 const kBackgroundColor = Color(0xFFF2F2F2);
+final kBackgroundGreyColor = Color(0xFF455A64).withOpacity(0.2);
 const kBackgroundTextFieldColor = Color(0xFFF4F6FA);
 const kTextFieldColor = Color(0xFF8E8E8E);
 const kTextFieldSecondColor = Color(0xFF1B2C49);

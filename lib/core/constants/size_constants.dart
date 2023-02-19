@@ -3,6 +3,7 @@ const kAnimationDuration = Duration(milliseconds: 200);
 const panelTransition = Duration(milliseconds: 500);
 
 
+const double size6 = 6.0;
 const double size8 = 8.0;
 const double size10 = 10.0;
 const double size12 = 12.0;
@@ -13,5 +14,8 @@ const double size20 = 20.0;
 const double size24 = 24.0;
 const double size32 = 32.0;
 const double size36 = 36.0;
+const double size38 = 38.0;
+const double size40 = 40.0;
+const double size56 = 56.0;
 const headerHeight = 85.0;
 const cartBarHeight = 80.0;

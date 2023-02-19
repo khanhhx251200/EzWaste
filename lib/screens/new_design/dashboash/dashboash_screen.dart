@@ -5,6 +5,7 @@ import 'package:shop_app/core/constants/size_constants.dart';
 import 'package:shop_app/core/constants/strings_constant.dart';
 import 'package:shop_app/screens/booking/components/body_booking.dart';
 import 'package:shop_app/screens/home/activities/activities_page.dart';
+import 'package:shop_app/screens/new_design/dashboash/account/account_screen.dart';
 import 'package:shop_app/screens/new_design/dashboash/components/appbar_dashboard.dart';
 import 'package:shop_app/screens/new_design/dashboash/follow_booking/follow_booking_page.dart';
 import 'package:shop_app/screens/new_design/dashboash/home/home_page.dart';
@@ -32,7 +33,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
     HomePage(),
     FollowBookingPage(),
     ActivitiesPage(),
-    ProfileScreen(),
+    AccountScreen(),
   ];
 
   @override

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:shop_app/models/time_sell.dart';
 
 const String kAppName = "EZ Waste";
 const String kServerError = "Lỗi hệ thống";
@@ -106,6 +105,9 @@ const String kInfoBooking = "Thông tin lịch thu gom";
 const String kCollect = "Thu gom";
 const String kNearestCollectTime = "Thời gian thu gom gần nhất";
 const String kFurthestCollectTime = "Thời gian thu gom xa nhất";
+const String kHotlineSupport = '19006969';
+const String kEmailSupport = "cskh@ezwaste.net";
+const String kFacebookCompany = "fb.com/ezwaste";
 
 //Filter Booking
 const int FILTER_ORGANIC = 1;
@@ -178,6 +180,10 @@ String convertDateToNameOfDay(DateTime dateTime) {
 
 DateTime convertStringToDateTime(String time) {
   return DateFormat('dd/MM/yyyy').parse(time);
+}
+
+DateTime convertTimeStampToDateTime(int timeStamp) {
+  return DateTime.fromMillisecondsSinceEpoch(timeStamp);
 }
 
 String statusString(int status) {

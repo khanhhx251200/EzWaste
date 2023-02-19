@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/core/constants/color_constants.dart';
 import 'package:shop_app/core/constants/constants.dart';
+import 'package:shop_app/core/constants/size_constants.dart';
 
 import '../size_config.dart';
 
@@ -19,8 +20,8 @@ class RoundedIconBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: getProportionateScreenWidth(40),
-      width: getProportionateScreenWidth(40),
+      height: getProportionateScreenWidth(size40),
+      width: getProportionateScreenWidth(size40),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         boxShadow: [

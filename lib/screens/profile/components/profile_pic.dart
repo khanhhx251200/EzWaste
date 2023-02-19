@@ -14,32 +14,29 @@ class ProfilePic extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, ProfileInformationScreen.routeName),
-      child: Row(
-        children: [
-          CircleAvatar(
-            radius: 30,
-            backgroundImage: AssetImage("assets/images/profile.png"),
-          ),
-          SizedBox(width: size8),
-          Expanded(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                context.read<HomeProvider>().userInfo!.fullName,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: kBlackColor,
-                    fontSize: size16),
-              ),
-              SizedBox(height: size8),
-              Text(
-                context.read<HomeProvider>().userInfo!.userName!,
-                style: TextStyle(color: kTextColor, fontSize: size12),
-              )
-            ],
-          ))
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: size32,
+              backgroundImage: AssetImage("assets/images/profile.png"),
+            ),
+            SizedBox(height: size12),
+            Text(
+              context.read<HomeProvider>().userInfo!.fullName,
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: size16),
+            ),
+            SizedBox(height: size8),
+            Text(
+              context.read<HomeProvider>().userInfo!.userName!,
+              style: TextStyle(color: kTextColor, fontSize: size14),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -55,7 +55,7 @@ class _ChangePasswordSuccessState extends State<ChangePasswordSuccess>
                       child: AnimatedCheck(
                         color: kWhiteColor,
                         progress: _animation,
-                        size: 40,
+                        size: size40,
                       ),
                     )
                   : Center(

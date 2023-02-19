@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomePageProvider>(
-      builder: (context, value, child) => SingleChildScrollView(
+      builder: (context, provider, child) => SingleChildScrollView(
         child: Container(
           child: Column(
             children: [

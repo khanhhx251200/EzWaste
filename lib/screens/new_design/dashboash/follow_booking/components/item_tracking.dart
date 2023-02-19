@@ -27,7 +27,7 @@ class ItemTracking extends StatelessWidget {
         Navigator.pushNamed(context, DetailBookingScreen.routeName);
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: size8, horizontal: size24),
+        margin: const EdgeInsets.symmetric(vertical: size8, horizontal: size16),
         decoration: boxDecorationShadow(radius: size20),
         padding: const EdgeInsets.all(size14),
         child: Column(
@@ -50,26 +50,46 @@ class ItemTracking extends StatelessWidget {
   Column buildBody() {
     return Column(
       children: [
-        itemBody(
-            Icons.date_range, convertTimeStampToString(booking.dateBooking!),
-            colorIcon: valueByType(booking.type, kOrganicColor, kPlasticColor)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: itemBody(Icons.date_range,
+                  convertTimeStampToString(booking.dateBooking!),
+                  colorIcon:
+                      valueByType(booking.type, kOrganicColor, kPlasticColor)),
+            ),
+            Expanded(
+              child: itemBody(Icons.delete_outline,
+                  valueByType(booking.type, kOrganicRecycle, kPlasticRecycle),
+                  colorIcon:
+                      valueByType(booking.type, kOrganicColor, kPlasticColor)),
+            ),
+          ],
+        ),
+        booking.status! >= 3
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: itemBody(
+                        const IconData(0xf24e, fontFamily: 'MaterialIcons'),
+                        booking.money.toString() + ' VNĐ',
+                        colorIcon: valueByType(
+                            booking.type, kOrganicColor, kPlasticColor)),
+                  ),
+                  Expanded(
+                    child: itemBody(
+                        const IconData(0xe235, fontFamily: 'MaterialIcons'),
+                        booking.mass.toString() + ' kg',
+                        colorIcon: valueByType(
+                            booking.type, kOrganicColor, kPlasticColor)),
+                  ),
+                ],
+              )
+            : const SizedBox(),
         itemBody(Icons.location_on, booking.address!,
             colorIcon: valueByType(booking.type, kOrganicColor, kPlasticColor)),
-        itemBody(Icons.delete_outline,
-            valueByType(booking.type, kOrganicRecycle, kPlasticRecycle),
-            colorIcon: valueByType(booking.type, kOrganicColor, kPlasticColor)),
-        booking.status! >= 3
-            ? itemBody(const IconData(0xf24e, fontFamily: 'MaterialIcons'),
-                booking.money.toString() + ' VNĐ',
-                colorIcon:
-                    valueByType(booking.type, kOrganicColor, kPlasticColor))
-            : const SizedBox(),
-        booking.status! >= 3
-            ? itemBody(const IconData(0xe235, fontFamily: 'MaterialIcons'),
-                booking.mass.toString() + ' kg',
-                colorIcon:
-                    valueByType(booking.type, kOrganicColor, kPlasticColor))
-            : const SizedBox(),
         booking.noteSeller != null && booking.noteSeller != ''
             ? itemBody(Icons.event_note, booking.noteSeller!.trim(),
                 colorIcon:
