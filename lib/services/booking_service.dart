@@ -9,6 +9,7 @@ import 'package:shop_app/models/booking.dart';
 import 'package:shop_app/models/booking_plastic.dart';
 import 'package:shop_app/models/booking_search.dart';
 import 'package:shop_app/models/history_response.dart';
+import 'package:shop_app/models/response_model.dart';
 import 'package:shop_app/models/statistic_booking.dart';
 
 class BookingService {
@@ -30,23 +31,18 @@ class BookingService {
     return null;
   }
 
-  Future<List<Booking>> getBookings(BookingSearch search) async {
-    List<Booking> _listBooking = [];
+  Future<ResponseModel?> getBookings(BookingSearch search) async {
     print('body: ' + jsonEncode(search.toJson()));
     try {
       final response = await _api.post(
           UrlConstant.GET_BOOKINGS + "?page=${search.page}&size=${search.size}",
           body: jsonEncode(search.toJson()));
       if (response.statusCode == 200) {
-        final dataResponse = response.data['data'];
-        _listBooking = (dataResponse['objList'] as List)
-            .map((e) => Booking.fromJson(e))
-            .toList();
-        return _listBooking;
+        return ResponseModel.fromJson(response.data['data']);
       }
-      return _listBooking;
+      return ResponseModel(totalPage: 0, totalRecord: 0, objList: null);
     } catch (e) {
-      return [];
+      return ResponseModel(totalPage: 0, totalRecord: 0, objList: null);
     }
   }
 

@@ -17,24 +17,21 @@ class _LatestBookingState extends State<LatestBooking> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(size20),
-      color: kGreenColor,
+      color: kWhiteColor,
+      padding: EdgeInsets.symmetric(horizontal: size16, vertical: size8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             kLatestBooking,
-            style: TextStyle(
-                color: kWhiteColor,
-                fontSize: size18,
-                fontWeight: FontWeight.w700),
+            style: TextStyle(fontSize: size18, fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: size8,),
+          SizedBox(
+            height: size8,
+          ),
           ListLatestBooking(),
         ],
       ),
     );
   }
 }
-
-

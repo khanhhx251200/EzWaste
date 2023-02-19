@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/core/constants/color_constants.dart';
 import 'package:shop_app/models/booking.dart';
 import 'package:shop_app/screens/new_design/dashboash/home/provider/home_page_provider.dart';
 
@@ -15,7 +16,6 @@ class ListLatestBooking extends StatefulWidget {
 }
 
 class _ListLatestBookingState extends State<ListLatestBooking> {
-
   @override
   void initState() {
     super.initState();
@@ -24,17 +24,30 @@ class _ListLatestBookingState extends State<ListLatestBooking> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 170,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        shrinkWrap: true,
-        itemCount: Provider.of<HomePageProvider>(context, listen: false).lateBookings.length,
-        itemBuilder: (context, index) {
-          final Booking item = Provider.of<HomePageProvider>(context, listen: false).lateBookings[index];
-          return LatestBookingItem(booking: item,);
-        },
-      ),
+    return SizedBox(
+      height: 180,
+      child: Provider.of<HomePageProvider>(context).lateBookings.length > 0
+          ? ListView.builder(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              itemCount: Provider.of<HomePageProvider>(context, listen: false)
+                  .lateBookings
+                  .length,
+              itemBuilder: (context, index) {
+                final Booking item =
+                    Provider.of<HomePageProvider>(context, listen: false)
+                        .lateBookings[index];
+                return LatestBookingItem(
+                  booking: item,
+                );
+              },
+            )
+          : Center(
+              child: Text(
+                "Không có lịch thu gom nào!",
+                style: TextStyle(color: kTextColor),
+              ),
+            ),
     );
   }
 }

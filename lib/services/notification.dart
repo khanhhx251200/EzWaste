@@ -100,7 +100,7 @@ class FCM {
     String? token = await messaging.getToken(
       vapidKey: KeyConstant.KEY_VAPID_KEY,
     );
-    _preferences.setTokenFirebase(token!);
     print('token: $token');
+    _preferences.setTokenFirebase(token!);
   }
 }

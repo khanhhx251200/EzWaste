@@ -20,6 +20,7 @@ import 'package:shop_app/screens/learderboard/leaderboard_screen.dart';
 import 'package:shop_app/screens/login/login2_screen.dart';
 import 'package:shop_app/screens/login/login_screen.dart';
 import 'package:shop_app/screens/new_design/confirm_booking/confirm_booking_screen.dart';
+import 'package:shop_app/screens/new_design/dashboash/account/account_screen.dart';
 import 'package:shop_app/screens/new_design/dashboash/dashboash_screen.dart';
 import 'package:shop_app/screens/new_design/detail_booking/detail_booking_screen.dart';
 import 'package:shop_app/screens/notifications/notifications_screen.dart';
@@ -68,4 +69,5 @@ final Map<String, WidgetBuilder> routes = {
   ConfirmBookingScreen.routeName: (context) => const ConfirmBookingScreen(),
   DetailBookingScreen.routeName: (context) => const DetailBookingScreen(),
   BodyBooking.routeName: (context) => const BodyBooking(),
+  AccountScreen.routeName: (context) => const AccountScreen(),
 };
