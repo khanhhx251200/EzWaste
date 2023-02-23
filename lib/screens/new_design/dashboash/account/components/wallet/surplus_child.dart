@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/core/constants/strings_constant.dart';
 import 'action_vertical.dart';
 
 class SurplusChild extends StatelessWidget {
@@ -15,8 +16,8 @@ class SurplusChild extends StatelessWidget {
         crossAxisCount: 4,
       ),
       children: [
-        ActionVertical(icon: Icons.add, title: "Nạp tiền"),
-        ActionVertical(icon: Icons.account_balance_wallet_outlined, title: "Chuyển tiền"),
+        ActionVertical(icon: Icons.add, title: kRecharge),
+        ActionVertical(icon: Icons.account_balance_wallet_outlined, title: kTransferMoney),
         ActionVertical(icon: Icons.money_off, title: "Phụ thu"),
         ActionVertical(icon: Icons.assignment, title: "Lịch sử GD"),
       ],

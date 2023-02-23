@@ -68,8 +68,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
         items: [
           FABBottomAppBarItem(iconData: Icons.view_quilt, text: kHome),
           FABBottomAppBarItem(iconData: Icons.timelapse, text: kFollow),
-          FABBottomAppBarItem(iconData: Icons.pie_chart, text: kCharts),
-          FABBottomAppBarItem(iconData: Icons.menu, text: kMenu),
+          FABBottomAppBarItem(iconData: Icons.pie_chart, text: kChart),
+          FABBottomAppBarItem(iconData: Icons.person, text: kAccout),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

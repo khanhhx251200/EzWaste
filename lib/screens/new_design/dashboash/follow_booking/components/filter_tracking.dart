@@ -25,7 +25,7 @@ class _FilterTrackingState extends State<FilterTracking> {
  @override
   void didChangeDependencies() {
    setState(() {
-     totalBookings = Provider.of<BookingProvider>(context).listBooking.length;
+     totalBookings = Provider.of<BookingProvider>(context).totalRecords;
     });
    super.didChangeDependencies();
   }

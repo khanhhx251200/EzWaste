@@ -36,6 +36,7 @@ const String kHistory = "Lịch sử";
 const String kMe = "Tôi";
 const String kMenu = "Menu";
 const String kSeeMore = "Xem thêm";
+const String kSeeAll = "Xem tất cả";
 const String kCollapse = "Thu gọn";
 const String kMember = "Member";
 const String kSave = "Lưu";
@@ -108,6 +109,16 @@ const String kFurthestCollectTime = "Thời gian thu gom xa nhất";
 const String kHotlineSupport = '19006969';
 const String kEmailSupport = "cskh@ezwaste.net";
 const String kFacebookCompany = "fb.com/ezwaste";
+const String kWalletBalance = "Số dư ví";
+const String kExtension = "Tiện ích";
+const String kOther = "Khác";
+const String kMyWallet = "Ví của tôi";
+const String kRecharge = "Nạp tiền";
+const String kWithdraw = "Rút tiền";
+const String kTransferMoney = "Chuyển tiền";
+const String kTransactionHistory = "Lịch sử giao dịch";
+const String kPay = "Thanh toán";
+const String kAccout = "Tài khoản";
 
 //Filter Booking
 const int FILTER_ORGANIC = 1;
@@ -134,8 +145,8 @@ const String DAY = "DAY";
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
-convertIntToCurrency(int currency) {
-  return NumberFormat.currency(locale: "vi").format(currency);
+convertNumberToCurrency(currency) {
+  return NumberFormat.simpleCurrency(locale: "vi-VN").format(currency);
 }
 
 String convertTimeStampToStringDetail(int timeStamp) {

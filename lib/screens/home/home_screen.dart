@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
             showDialogWallet(context);
           },
           child: SvgPicture.asset(
-            'assets/icons/Cash.svg',
+            'assets/icons/cash.svg',
             color: kPrimaryColor,
           ),
         ),
