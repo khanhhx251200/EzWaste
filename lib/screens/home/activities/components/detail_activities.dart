@@ -28,25 +28,23 @@ class DetailActivities extends StatelessWidget {
         containerDetail(
             'assets/images/100_green.png',
             '${provider.statisticBooking!.sumMoneySh} VNĐ',
-            '${provider.statisticBooking!.sumMoneyTc} VNĐ',
-            isMoney: true)
+            '${provider.statisticBooking!.sumMoneyTc} VNĐ')
       ],
     );
   }
 
   GestureDetector containerDetail(
-      String urlImage, String textOrganic, String textPlastic,
-      {bool isMoney = false}) {
+      String urlImage, String textOrganic, String textPlastic,) {
     return GestureDetector(
       onTap: () {},
       child: Row(
         children: [
-          Expanded(flex: isMoney ? 1 : 2, child: Image.asset(urlImage)),
+          Expanded(flex: 1, child: Image.asset(urlImage)),
           const SizedBox(
             width: size32,
           ),
           Expanded(
-            flex: isMoney ? 2 : 3,
+            flex: 2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -55,7 +53,7 @@ class DetailActivities extends StatelessWidget {
                   height: size20,
                 ),
                 boxDetail(kPlasticRecycle, kPlasticColor, textPlastic,
-                    isMoney: isMoney),
+                    isMoney: true),
               ],
             ),
           )
@@ -74,9 +72,9 @@ class DetailActivities extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
-            spreadRadius: size10 / 2,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
+            spreadRadius: 2,
+            blurRadius: size10,
+            offset: Offset(0, 2), // changes position of shadow
           ),
         ],
       ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/core/constants/color_constants.dart';
+import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:shop_app/core/constants/strings_constant.dart';
 import 'package:shop_app/screens/notifications/components/icon_notification.dart';
 
 class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
@@ -10,8 +13,8 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   });
 
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context, double shrinkOffset,
+      bool overlapsContent) {
     final size = 60;
     final top = expandedHeight - shrinkOffset - size / 2;
 
@@ -19,7 +22,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
       fit: StackFit.expand,
       overflow: Overflow.visible,
       children: [
-        buildBackground(shrinkOffset),
+        buildBackground(shrinkOffset, context),
         buildAppBar(shrinkOffset),
         Positioned(
           top: top,
@@ -38,29 +41,46 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   Widget buildAppBar(double shrinkOffset) {
     return Opacity(
       opacity: appear(shrinkOffset),
-      child: AppBar(
-        backgroundColor: kPrimaryColor,
-        title: Text(
-          'Offer',
-          style: TextStyle(color: kWhiteColor),
-        ),
-        centerTitle: true,
+      child: Container(
+        color: kPrimaryColor,
       ),
     );
   }
 
-  Widget buildBackground(double shrinkOffset) => Opacity(
+  Widget buildBackground(double shrinkOffset, BuildContext context) =>
+      Opacity(
         opacity: disappear(shrinkOffset),
-        child: Container(
-          color: kWhiteColor,
-          child: AppBar(
-            backgroundColor: kWhiteColor,
-            leading: BackButtonIcon(),
-          ),
-        ),
+        child: ClipRRect(
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(60),
+              bottomLeft: Radius.circular(60),
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/bg_silver.jpg'),
+                      fit: BoxFit.cover)),
+              child: Padding(
+                padding: EdgeInsets.symmetric(),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(onPressed: () => Navigator.pop(context),
+                        icon: Icon(Icons.arrow_back_ios_new)),
+                    Center(child: Text(kMyWallet)),
+                    SvgPicture.asset(
+                      'assets/icons/cash.svg',
+                      color: kWhiteColor,
+                    )
+                  ],
+                ),
+              ),
+            )),
       );
 
-  Widget buildFloating(double shrinkOffset) => Opacity(
+  Widget buildFloating(double shrinkOffset) =>
+      Opacity(
         opacity: disappear(shrinkOffset),
         child: Column(
           children: [
@@ -90,7 +110,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   double get maxExtent => expandedHeight;
 
   @override
-  double get minExtent => kToolbarHeight ;
+  double get minExtent => kToolbarHeight;
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
