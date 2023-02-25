@@ -6,15 +6,15 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/core/api/local_auth_api.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/key_constant.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/helper/ToastUtils.dart';
-import 'package:shop_app/screens/new_design/dashboash/account/components/wallet/action_box.dart';
-import 'package:shop_app/size_config.dart';
+import 'package:recycle_app/components/default_button.dart';
+import 'package:recycle_app/core/api/local_auth_api.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/key_constant.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/helper/ToastUtils.dart';
+import 'package:recycle_app/screens/new_design/dashboash/account/components/wallet/action_box.dart';
+import 'package:recycle_app/size_config.dart';
 
 class VerifyAuthenticate extends StatefulWidget {
   const VerifyAuthenticate({Key? key}) : super(key: key);

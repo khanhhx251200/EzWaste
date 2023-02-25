@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/screens/notifications/components/icon_notification.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/screens/notifications/components/icon_notification.dart';
 
 class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;

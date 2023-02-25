@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/screens/new_design/dashboash/components/address_and_date.dart';
-import 'package:shop_app/screens/new_design/dashboash/components/advertisement.dart';
-import 'package:shop_app/screens/new_design/dashboash/home/provider/home_page_provider.dart';
+import 'package:recycle_app/screens/new_design/dashboash/components/address_and_date.dart';
+import 'package:recycle_app/screens/new_design/dashboash/components/advertisement.dart';
+import 'package:recycle_app/screens/new_design/dashboash/home/provider/home_page_provider.dart';
 
 import 'components/latest_booking.dart';
 import 'components/news.dart';

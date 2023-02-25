@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
 
 showToastInApp(BuildContext context, String content,
     {Color? backgroundColor, Color? textColor, String? align}) {

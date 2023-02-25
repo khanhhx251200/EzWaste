@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/components/custom_surfix_icon.dart';
-import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/components/form_error.dart';
-import 'package:shop_app/components/loading_widget.dart';
-import 'package:shop_app/core/auth_provider.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
-import 'package:shop_app/screens/otp/otp_screen.dart';
+import 'package:recycle_app/components/custom_surfix_icon.dart';
+import 'package:recycle_app/components/default_button.dart';
+import 'package:recycle_app/components/form_error.dart';
+import 'package:recycle_app/components/loading_widget.dart';
+import 'package:recycle_app/core/auth_provider.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/screens/complete_profile/complete_profile_screen.dart';
+import 'package:recycle_app/screens/otp/otp_screen.dart';
 
 import '../../../core/constants/strings_constant.dart';
 import '../../../size_config.dart';

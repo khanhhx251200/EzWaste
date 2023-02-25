@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/screens/new_design/dashboash/account/components/wallet/my_wallet/components/action_wallet.dart';
-import 'package:shop_app/screens/new_design/dashboash/account/components/wallet/my_wallet/components/wallet_balance.dart';
-import 'package:shop_app/screens/new_design/dashboash/account/components/wallet/transaction_history/list_transaction_history.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/screens/new_design/dashboash/account/components/wallet/my_wallet/components/action_wallet.dart';
+import 'package:recycle_app/screens/new_design/dashboash/account/components/wallet/my_wallet/components/wallet_balance.dart';
+import 'package:recycle_app/screens/new_design/dashboash/account/components/wallet/transaction_history/list_transaction_history.dart';
 
 class MyWalletScreen extends StatelessWidget {
   static final String routeName = "/my-wallet";

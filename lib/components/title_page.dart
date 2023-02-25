@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
 
 class TitlePage extends StatelessWidget {
   const TitlePage({Key? key, required this.title}) : super(key: key);

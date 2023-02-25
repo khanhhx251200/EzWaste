@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/core/constants/constants.dart';
-import 'package:shop_app/size_config.dart';
+import 'package:recycle_app/components/default_button.dart';
+import 'package:recycle_app/core/constants/constants.dart';
+import 'package:recycle_app/size_config.dart';
 
 import '../../../core/constants/strings_constant.dart';
 

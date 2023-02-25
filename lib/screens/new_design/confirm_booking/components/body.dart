@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/models/booking.dart';
-import 'package:shop_app/screens/history/components/info_shipper.dart';
-import 'package:shop_app/screens/new_design/confirm_booking/components/info_organic.dart';
-import 'package:shop_app/screens/new_design/confirm_booking/components/info_plastic.dart';
+import 'package:recycle_app/components/info_customer.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/models/booking.dart';
+import 'package:recycle_app/screens/new_design/confirm_booking/components/info_organic.dart';
+import 'package:recycle_app/screens/new_design/confirm_booking/components/info_plastic.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -22,7 +22,7 @@ class Body extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          InfoShipper(fullName: booking.nameShipper!, userName: booking.phoneShipper!),
+          InfoShipper(booking: booking,),
           SizedBox(
             height: size32,
           ),

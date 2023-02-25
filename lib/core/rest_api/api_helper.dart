@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
-import 'package:shop_app/core/constants/endpoint_constant.dart';
-import 'package:shop_app/services/share_preferences_service.dart';
+import 'package:recycle_app/core/constants/endpoint_constant.dart';
+import 'package:recycle_app/services/share_preferences_service.dart';
 
 class ApiHelper {
   ApiHelper._privateConstructor();

@@ -2,13 +2,12 @@ import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop_app/components/loading_widget.dart';
-import 'package:shop_app/core/auth_provider.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/helper/keyboard.dart';
-import 'package:shop_app/models/user.dart';
-import 'package:shop_app/screens/home/provider/home_provider.dart';
+import 'package:recycle_app/components/loading_widget.dart';
+import 'package:recycle_app/core/auth_provider.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/helper/keyboard.dart';
+import 'package:recycle_app/models/user.dart';
 
 import '../../../components/default_button.dart';
 import '../../../core/constants/strings_constant.dart';
@@ -33,7 +32,7 @@ class _SignInFormState extends State<SignInForm> {
       UserInfo user = await provider.signIn(
           context, userNameController.text, passwordController.text);
       if(user != null) {
-        context.read<HomeProvider>().setUserInfo(user);
+        context.read<AuthProvider>().setUserInfo(user);
       }
     } catch (e) {}
   }

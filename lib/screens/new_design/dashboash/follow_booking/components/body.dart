@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/components/filter_tracking.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/components/filter_tracking.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
 import 'list_tracking.dart';
 
 class Body extends StatefulWidget {

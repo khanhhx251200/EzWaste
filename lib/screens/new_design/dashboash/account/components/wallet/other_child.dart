@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/screens/change_password/change_password_screen.dart';
-import 'package:shop_app/screens/login/components/verify_biometric/verify_biometric.dart';
-import 'package:shop_app/screens/new_design/dashboash/account/components/wallet/action_horizontal.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/screens/change_password/change_password_screen.dart';
+import 'package:recycle_app/screens/login/components/verify_biometric/verify_biometric.dart';
+import 'package:recycle_app/screens/new_design/dashboash/account/components/wallet/action_horizontal.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 

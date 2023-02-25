@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/decoration_border_shadow.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/models/booking.dart';
+import 'package:recycle_app/components/decoration_border_shadow.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/models/booking.dart';
 
 class InfoBookingTab extends StatelessWidget {
   const InfoBookingTab({Key? key, required this.booking}) : super(key: key);

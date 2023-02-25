@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/components/box_selection.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/components/box_selection.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
 import 'package:provider/provider.dart';
 
 class FilterButton extends StatefulWidget {

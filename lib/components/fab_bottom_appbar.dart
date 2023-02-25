@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
 
 class FABBottomAppBarItem {
   FABBottomAppBarItem({required this.iconData, required this.text});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
 import 'action_vertical.dart';
 
 class SurplusChild extends StatelessWidget {

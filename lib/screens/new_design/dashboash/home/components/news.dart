@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/screens/new_design/dashboash/home/components/news_list.dart';
-import 'package:shop_app/screens/new_design/detail_booking/detail_booking_screen.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/screens/new_design/dashboash/home/components/news_list.dart';
+import 'package:recycle_app/screens/new_design/detail_booking/detail_booking_screen.dart';
+import 'package:recycle_app/services/local_notification_service.dart';
 
 class News extends StatefulWidget {
   const News({
@@ -29,7 +30,11 @@ class _NewsState extends State<News> {
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: size20),
               ),
               TextButton(
-                  onPressed: () => Navigator.pushNamed(context, DetailBookingScreen.routeName),
+                  onPressed: () => LocalNotificationService.addNotification(
+                      "Test",
+                      "hehe",
+                      DateTime.now().millisecondsSinceEpoch + 100,
+                      'testing'),
                   child: Text(
                     kSeeMore,
                     style: TextStyle(color: kGreyColor),
@@ -42,4 +47,3 @@ class _NewsState extends State<News> {
     );
   }
 }
-

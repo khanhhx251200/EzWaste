@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/endpoint_constant.dart';
-import 'package:shop_app/core/rest_api/api.dart';
-import 'package:shop_app/helper/ToastUtils.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/endpoint_constant.dart';
+import 'package:recycle_app/core/rest_api/api.dart';
+import 'package:recycle_app/helper/ToastUtils.dart';
 
 class ChangePasswordProvider extends ChangeNotifier {
   final _api = Api.apiProvider;

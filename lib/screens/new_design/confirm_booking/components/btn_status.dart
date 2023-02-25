@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/components/default_button.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
 
 class ButtonStatus extends StatelessWidget {
   const ButtonStatus({Key? key, required this.status}) : super(key: key);

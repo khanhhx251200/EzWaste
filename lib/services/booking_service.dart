@@ -2,15 +2,15 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:dio/dio.dart';
-import 'package:shop_app/core/constants/endpoint_constant.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/core/rest_api/api.dart';
-import 'package:shop_app/models/booking.dart';
-import 'package:shop_app/models/booking_plastic.dart';
-import 'package:shop_app/models/booking_search.dart';
-import 'package:shop_app/models/history_response.dart';
-import 'package:shop_app/models/response_model.dart';
-import 'package:shop_app/models/statistic_booking.dart';
+import 'package:recycle_app/core/constants/endpoint_constant.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/core/rest_api/api.dart';
+import 'package:recycle_app/models/booking.dart';
+import 'package:recycle_app/models/booking_plastic.dart';
+import 'package:recycle_app/models/booking_search.dart';
+import 'package:recycle_app/models/history_response.dart';
+import 'package:recycle_app/models/response_model.dart';
+import 'package:recycle_app/models/statistic_booking.dart';
 
 class BookingService {
   final Api _api = Api.apiProvider;

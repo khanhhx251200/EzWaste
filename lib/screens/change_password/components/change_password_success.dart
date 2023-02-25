@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:animated_check/animated_check.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/screens/login/login_screen.dart';
-import 'package:shop_app/services/share_preferences_service.dart';
+import 'package:recycle_app/components/default_button.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/screens/login/login2_screen.dart';
+import 'package:recycle_app/services/share_preferences_service.dart';
 
 class ChangePasswordSuccess extends StatefulWidget {
   static String routeName = '/change_password_success';
@@ -81,7 +81,7 @@ class _ChangePasswordSuccessState extends State<ChangePasswordSuccess>
                   press: () async {
                       await _pref.logout();
                       Navigator.of(context).pushNamedAndRemoveUntil(
-                          LoginScreen.routeName, (Route<dynamic> route) => false);
+                          Login2Screen.routeName, (Route<dynamic> route) => false);
                   },
                 ),
               ),

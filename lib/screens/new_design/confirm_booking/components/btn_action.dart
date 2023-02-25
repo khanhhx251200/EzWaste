@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/models/booking.dart';
-import 'package:shop_app/screens/history/components/agree_order_fragment.dart';
-import 'package:shop_app/screens/history/components/refuse_fragment.dart';
+import 'package:recycle_app/components/default_button.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/models/booking.dart';
+import 'package:recycle_app/screens/action_booking/components/access_booking.dart';
+import 'package:recycle_app/screens/action_booking/components/refuse_booking_screen.dart';
 
 class BtnActionConfirm extends StatelessWidget {
   const BtnActionConfirm({

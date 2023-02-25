@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/socal_card.dart';
-import 'package:shop_app/core/constants/constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/size_config.dart';
+import 'package:recycle_app/components/socal_card.dart';
+import 'package:recycle_app/core/constants/constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/size_config.dart';
 
 import 'sign_up_form.dart';
 

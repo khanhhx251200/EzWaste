@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/models/notication.dart';
-import 'package:shop_app/screens/notifications/components/list_notification.dart';
-import 'package:shop_app/screens/notifications/detail_notification/components/custom_appbar_advance.dart';
-import 'package:shop_app/screens/notifications/detail_notification/components/title_notification.dart';
-import 'package:shop_app/size_config.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/models/notication.dart';
+import 'package:recycle_app/screens/notifications/components/list_notification.dart';
+import 'package:recycle_app/screens/notifications/detail_notification/components/custom_appbar_advance.dart';
+import 'package:recycle_app/screens/notifications/detail_notification/components/title_notification.dart';
+import 'package:recycle_app/size_config.dart';
 
 class DetailNotification extends StatefulWidget {
   static String routeName = "/detail-notifications";

@@ -5,19 +5,16 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/core/auth_provider.dart';
-import 'package:shop_app/routes.dart';
-import 'package:shop_app/screens/history/provider/evaluate_provider.dart';
-import 'package:shop_app/screens/history/provider/history_provider.dart';
-import 'package:shop_app/screens/home/activities/provider/activities_provider.dart';
-import 'package:shop_app/screens/home/provider/home_provider.dart';
-import 'package:shop_app/screens/learderboard/provider/leaderboard_provider.dart';
-import 'package:shop_app/screens/new_design/confirm_booking/provider/confirm_provider.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
-import 'package:shop_app/screens/new_design/dashboash/home/provider/home_page_provider.dart';
-import 'package:shop_app/screens/sell/sell_provider.dart';
-import 'package:shop_app/screens/welcome/welcome_screen.dart';
-import 'package:shop_app/theme.dart';
+import 'package:recycle_app/core/auth_provider.dart';
+import 'package:recycle_app/routes.dart';
+import 'package:recycle_app/screens/new_design/confirm_booking/provider/confirm_provider.dart';
+import 'package:recycle_app/screens/new_design/dashboash/activities/provider/activities_provider.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
+import 'package:recycle_app/screens/new_design/dashboash/home/provider/home_page_provider.dart';
+import 'package:recycle_app/screens/welcome/welcome_screen.dart';
+import 'package:recycle_app/services/local_notification_service.dart';
+import 'package:recycle_app/services/notification.dart';
+import 'package:recycle_app/theme.dart';
 
 final FlutterLocalNotificationsPlugin localNotifications =
     FlutterLocalNotificationsPlugin();
@@ -35,18 +32,19 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 void main() async {
   await init();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  await LocalNotificationService.initialize();
+
+  final firebaseMessaging = FCM();
+  firebaseMessaging.setNotifications();
+  firebaseMessaging.getToken();
+
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => AuthProvider()),
-      ChangeNotifierProvider(create: (_) => HistoryProvider()),
-      ChangeNotifierProvider(create: (_) => SellProvider()),
-      ChangeNotifierProvider(create: (_) => HomeProvider()),
       ChangeNotifierProvider(create: (_) => HomePageProvider()),
-      ChangeNotifierProvider(create: (_) => EvaluateProvider()),
-      ChangeNotifierProvider(create: (_) => LeaderBoardProvider()),
-      ChangeNotifierProvider(create: (_) => ActivitiesProvider()),
       ChangeNotifierProvider(create: (_) => BookingProvider()),
       ChangeNotifierProvider(create: (_) => ConfirmProvider()),
+      ChangeNotifierProvider(create: (_) => ActivitiesProvider()),
     ],
     child: MyApp(),
   ));

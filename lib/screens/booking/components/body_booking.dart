@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/screens/booking/components/table_choose_time.dart';
-import 'package:shop_app/screens/new_design/dashboash/components/appbar_dashboard.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/screens/booking/components/table_choose_time.dart';
+import 'package:recycle_app/screens/new_design/dashboash/components/appbar_dashboard.dart';
 
 class BodyBooking extends StatefulWidget {
   static const String routeName = '/booking';

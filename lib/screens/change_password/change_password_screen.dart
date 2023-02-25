@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/screens/change_password/components/change_password_success.dart';
-import 'package:shop_app/screens/change_password/components/input_password.dart';
+import 'package:recycle_app/components/default_button.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/screens/change_password/components/change_password_success.dart';
+import 'package:recycle_app/screens/change_password/components/input_password.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
   static String routeName = '/change_password';

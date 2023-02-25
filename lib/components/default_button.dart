@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
 
 import '../size_config.dart';
 
@@ -11,11 +11,13 @@ class DefaultButton extends StatelessWidget {
     this.press,
     this.color,
     this.textSize,
+    this.radius = size20,
   }) : super(key: key);
   final String? text;
   final Function? press;
   final Color? color;
   final double? textSize;
+  final double radius;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class DefaultButton extends StatelessWidget {
       height: 48,
       child: ElevatedButton(
         style: TextButton.styleFrom(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(size20)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
             primary: Colors.white,
             backgroundColor: color != null ? color : kPrimaryColor,
             padding: EdgeInsets.symmetric(horizontal: 24)

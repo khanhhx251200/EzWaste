@@ -7,18 +7,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/components/loading_widget.dart';
-import 'package:shop_app/core/api/local_auth_api.dart';
-import 'package:shop_app/core/auth_provider.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/key_constant.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/screens/home/home_screen.dart';
-import 'package:shop_app/screens/home/provider/home_provider.dart';
-import 'package:shop_app/screens/new_design/dashboash/dashboash_screen.dart';
-import 'package:shop_app/services/user_service.dart';
+import 'package:recycle_app/components/default_button.dart';
+import 'package:recycle_app/components/loading_widget.dart';
+import 'package:recycle_app/core/api/local_auth_api.dart';
+import 'package:recycle_app/core/auth_provider.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/key_constant.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/screens/new_design/dashboash/dashboash_screen.dart';
+import 'package:recycle_app/services/user_service.dart';
 import 'package:provider/provider.dart';
 
 class FormLogin extends StatefulWidget {
@@ -79,7 +77,6 @@ class _FormLoginState extends State<FormLogin> {
       setState(() => isLoadingLogin = false);
       if (userInfo != null) {
         context.read<AuthProvider>().setUserInfo(userInfo);
-        context.read<HomeProvider>().setUserInfo(userInfo);
         goToHomeScreen();
       }
     } catch (e) {

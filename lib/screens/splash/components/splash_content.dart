@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
 
 import '../../../core/constants/strings_constant.dart';
 import '../../../size_config.dart';

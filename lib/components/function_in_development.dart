@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
 
 class FunctionInDevelopment extends StatelessWidget {
   const FunctionInDevelopment({Key? key}) : super(key: key);

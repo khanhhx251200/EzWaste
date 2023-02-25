@@ -4,15 +4,15 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:shop_app/components/loading_widget.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/key_constant.dart';
-import 'package:shop_app/helper/ToastUtils.dart';
-import 'package:shop_app/screens/login/login2_screen.dart';
-import 'package:shop_app/screens/splash/splash_screen.dart';
+import 'package:recycle_app/components/loading_widget.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/key_constant.dart';
+import 'package:recycle_app/helper/ToastUtils.dart';
+import 'package:recycle_app/screens/login/login2_screen.dart';
+import 'package:recycle_app/screens/splash/splash_screen.dart';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:shop_app/size_config.dart';
+import 'package:recycle_app/size_config.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static String routeName = "/welcome";

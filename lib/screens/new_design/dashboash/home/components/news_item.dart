@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/decoration_border_shadow.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:recycle_app/components/decoration_border_shadow.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
 
 class NewsItem extends StatelessWidget {
   const NewsItem({

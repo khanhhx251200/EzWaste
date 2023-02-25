@@ -2,14 +2,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/components/box_selection.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/components/filter_bottom_sheet.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/components/sort_bottom_sheet.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/components/box_selection.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/components/filter_bottom_sheet.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/components/sort_bottom_sheet.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
 
 class FilterTracking extends StatefulWidget {
   const FilterTracking({

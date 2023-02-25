@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
 
 class ChildMenu extends StatelessWidget {
   const ChildMenu({Key? key, required this.text, required this.press,required this.notification, required this.icon}) : super(key: key);

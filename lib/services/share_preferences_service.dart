@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shop_app/core/constants/key_constant.dart';
-import 'package:shop_app/models/user.dart';
+import 'package:recycle_app/core/constants/key_constant.dart';
+import 'package:recycle_app/models/user.dart';
 
 class PreferencesService {
   Future setTokenFirebase(String token) async {

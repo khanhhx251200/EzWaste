@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:shop_app/core/constants/endpoint_constant.dart';
-import 'package:shop_app/core/rest_api/api_helper.dart';
-import 'package:shop_app/models/user.dart';
+import 'package:recycle_app/core/constants/endpoint_constant.dart';
+import 'package:recycle_app/core/rest_api/api_helper.dart';
+import 'package:recycle_app/models/user.dart';
 
 class AuthenticationService {
   static final ApiHelper _api = ApiHelper.apiProvider;

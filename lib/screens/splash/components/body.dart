@@ -1,20 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/loading_widget.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/screens/home/home_screen.dart';
-import 'package:shop_app/screens/home/provider/home_provider.dart';
-import 'package:shop_app/screens/login/login2_screen.dart';
-import 'package:shop_app/screens/login/login_screen.dart';
-import 'package:shop_app/services/local_notification_service.dart';
-import 'package:shop_app/services/notification.dart';
-import 'package:shop_app/services/share_preferences_service.dart';
-import 'package:shop_app/size_config.dart';
-import 'package:provider/provider.dart';
+import 'package:recycle_app/components/loading_widget.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/screens/login/login2_screen.dart';
+import 'package:recycle_app/services/local_notification_service.dart';
+import 'package:recycle_app/services/notification.dart';
+import 'package:recycle_app/services/share_preferences_service.dart';
+import 'package:recycle_app/size_config.dart';
 import '../components/splash_content.dart';
-import '../../../components/default_button.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -47,11 +42,7 @@ class _BodyState extends State<Body> {
   void initState() {
     super.initState();
 
-    LocalNotificationService.initialize(context);
 
-    final firebaseMessaging = FCM();
-    firebaseMessaging.setNotifications();
-    firebaseMessaging.getToken();
   }
 
   @override
@@ -146,39 +137,8 @@ class _BodyState extends State<Body> {
     );
   }
 
-  Future<Container> buttonLogin(BuildContext context) async {
-    return Container(
-      height: getProportionateScreenHeight(48),
-      child: DefaultButton(
-        text: kStart.toUpperCase(),
-        press: () async {
-          await handleLogin(context);
-        },
-      ),
-    );
-  }
-
   newScreenLogin() {
     Navigator.pushReplacementNamed(context, Login2Screen.routeName);
-  }
-
-  Future<void> handleLogin(BuildContext context) async {
-    setState(() => _isLogin = true);
-
-    String? token = await _prefs.getToken();
-    int? time = await _prefs.getTimeExprise();
-    print("token BE: $token");
-    if (token!.isNotEmpty && time! > DateTime.now().millisecondsSinceEpoch) {
-      await context.read<HomeProvider>().getUserInfo();
-      if (context.read<HomeProvider>().userInfo != null) {
-        Navigator.pushReplacementNamed(context, HomeScreen.routeName);
-      } else {
-        setState(() => _isLogin = false);
-      }
-    } else {
-      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
-    }
-    setState(() => _isLogin = false);
   }
 
   AnimatedContainer buildDot({int? index}) {

@@ -4,8 +4,8 @@ import 'dart:math';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:shop_app/core/constants/key_constant.dart';
-import 'package:shop_app/services/share_preferences_service.dart';
+import 'package:recycle_app/core/constants/key_constant.dart';
+import 'package:recycle_app/services/share_preferences_service.dart';
 
 Future<void> onBackgroundMessage(RemoteMessage message) async {
   await Firebase.initializeApp();

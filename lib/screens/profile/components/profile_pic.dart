@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/auth_provider.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/screens/home/provider/home_provider.dart';
-import 'package:shop_app/screens/profile_information/profile_information_screen.dart';
+import 'package:recycle_app/screens/profile_information/profile_information_screen.dart';
 
 class ProfilePic extends StatelessWidget {
   ProfilePic({
@@ -25,14 +25,14 @@ class ProfilePic extends StatelessWidget {
             ),
             SizedBox(height: size12),
             Text(
-              context.read<HomeProvider>().userInfo!.fullName,
+              context.read<AuthProvider>().userInfo.fullName,
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: size16),
             ),
             SizedBox(height: size8),
             Text(
-              context.read<HomeProvider>().userInfo!.userName!,
+              context.read<AuthProvider>().userInfo.userName!,
               style: TextStyle(color: kTextColor, fontSize: size14),
             )
           ],

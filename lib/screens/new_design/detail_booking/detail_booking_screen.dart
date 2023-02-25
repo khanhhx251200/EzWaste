@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/app_bar.dart';
-import 'package:shop_app/components/loading_widget.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/models/booking.dart';
-import 'package:shop_app/screens/new_design/dashboash/components/address_and_date.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
-import 'package:shop_app/screens/new_design/detail_booking/components/collection_tab.dart';
-import 'package:shop_app/screens/new_design/detail_booking/components/info_tab.dart';
+import 'package:recycle_app/components/app_bar.dart';
+import 'package:recycle_app/components/loading_widget.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/models/booking.dart';
+import 'package:recycle_app/screens/new_design/dashboash/components/address_and_date.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
+import 'package:recycle_app/screens/new_design/detail_booking/components/collection_tab.dart';
+import 'package:recycle_app/screens/new_design/detail_booking/components/info_tab.dart';
 import 'package:provider/provider.dart';
 
 class DetailBookingScreen extends StatefulWidget {

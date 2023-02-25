@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:shop_app/core/constants/endpoint_constant.dart';
-import 'package:shop_app/core/constants/key_constant.dart';
-import 'package:shop_app/core/rest_api/api.dart';
-import 'package:shop_app/models/notication.dart';
-import 'package:shop_app/models/user.dart';
-import 'package:shop_app/services/share_preferences_service.dart';
+import 'package:recycle_app/core/constants/endpoint_constant.dart';
+import 'package:recycle_app/core/constants/key_constant.dart';
+import 'package:recycle_app/core/rest_api/api.dart';
+import 'package:recycle_app/models/notication.dart';
+import 'package:recycle_app/models/user.dart';
+import 'package:recycle_app/services/share_preferences_service.dart';
 
 class UserService {
   final Api _api = Api.apiProvider;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
 
 AppBar appBar(String text) {
   return AppBar(

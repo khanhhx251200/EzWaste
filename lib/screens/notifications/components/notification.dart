@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/models/notication.dart';
-import 'package:shop_app/screens/notifications/components/icon_notification.dart';
-import 'package:shop_app/screens/notifications/detail_notification/detail_notification_screen.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/models/notication.dart';
+import 'package:recycle_app/screens/notifications/components/icon_notification.dart';
+import 'package:recycle_app/screens/notifications/detail_notification/detail_notification_screen.dart';
 
 class NotificationItem extends StatelessWidget {
   const NotificationItem({Key? key, required this.notification})

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/models/booking.dart';
-import 'package:shop_app/screens/new_design/dashboash/home/provider/home_page_provider.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/models/booking.dart';
+import 'package:recycle_app/screens/new_design/dashboash/home/provider/home_page_provider.dart';
 
 import 'latest_booking_item.dart';
 

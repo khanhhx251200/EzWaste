@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/custom_surfix_icon.dart';
-import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/components/form_error.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/screens/otp/otp_screen.dart';
+import 'package:recycle_app/components/custom_surfix_icon.dart';
+import 'package:recycle_app/components/default_button.dart';
+import 'package:recycle_app/components/form_error.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/screens/otp/otp_screen.dart';
 
 import '../../../core/constants/strings_constant.dart';
 import '../../../size_config.dart';

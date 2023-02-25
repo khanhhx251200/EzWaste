@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:shop_app/core/constants/endpoint_constant.dart';
-import 'package:shop_app/core/constants/key_constant.dart';
-import 'package:shop_app/core/rest_api/dio_interceptor.dart';
-import 'package:shop_app/services/share_preferences_service.dart';
+import 'package:recycle_app/core/constants/endpoint_constant.dart';
+import 'package:recycle_app/core/constants/key_constant.dart';
+import 'package:recycle_app/core/rest_api/dio_interceptor.dart';
+import 'package:recycle_app/services/share_preferences_service.dart';
 
 class Api {
   Api._privateConstructor();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/screens/login/components/form_login/form_login.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/screens/login/components/form_login/form_login.dart';
 
 class Login2Screen extends StatelessWidget {
   static String routeName = "/login2";

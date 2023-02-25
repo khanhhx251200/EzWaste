@@ -1,9 +1,9 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/decoration_border_shadow.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
+import 'package:recycle_app/components/decoration_border_shadow.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
 
 class InputDisable extends StatelessWidget {
   const InputDisable({
@@ -19,20 +19,16 @@ class InputDisable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: size20),
-      padding: EdgeInsets.symmetric(vertical: 2, horizontal: size32),
+      padding: EdgeInsets.symmetric(vertical: 0, horizontal: size24),
       decoration: BoxDecoration(
         color: kWhiteColor,
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(size20),
-            topRight: Radius.circular(size20),
-            bottomLeft: Radius.circular(size20),
-            bottomRight: Radius.circular(size20)),
+        borderRadius: BorderRadius.circular(size12),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: Offset(0, 2), // changes position of shadow
+            spreadRadius: size8,
+            blurRadius: size14,
+            offset: Offset(0, size8), // changes position of shadow
           ),
         ],
       ),

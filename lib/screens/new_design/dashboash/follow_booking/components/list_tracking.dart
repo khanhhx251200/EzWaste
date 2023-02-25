@@ -1,9 +1,9 @@
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/loading_widget.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/models/booking.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
+import 'package:recycle_app/components/loading_widget.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/models/booking.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
 
 import 'item_tracking.dart';
 

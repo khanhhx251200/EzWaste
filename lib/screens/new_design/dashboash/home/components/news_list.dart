@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/screens/new_design/dashboash/home/components/news_item.dart';
+import 'package:recycle_app/screens/new_design/dashboash/home/components/news_item.dart';
 
 class NewsList extends StatelessWidget {
   const NewsList({Key? key}) : super(key: key);

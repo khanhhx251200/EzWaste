@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/screens/new_design/dashboash/account/components/wallet/transaction_history/item_transaction_history.dart';
+import 'package:recycle_app/screens/new_design/dashboash/account/components/wallet/transaction_history/item_transaction_history.dart';
 
 class ListTransactionHistory extends StatelessWidget {
   const ListTransactionHistory({

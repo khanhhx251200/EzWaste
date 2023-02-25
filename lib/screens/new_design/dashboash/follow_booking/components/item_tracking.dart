@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/components/decoration_border_shadow.dart';
-import 'package:shop_app/components/default_button.dart';
-import 'package:shop_app/components/info_customer.dart';
-import 'package:shop_app/core/constants/color_constants.dart';
-import 'package:shop_app/core/constants/constants.dart';
-import 'package:shop_app/core/constants/size_constants.dart';
-import 'package:shop_app/core/constants/strings_constant.dart';
-import 'package:shop_app/models/booking.dart';
-import 'package:shop_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
-import 'package:shop_app/screens/new_design/detail_booking/detail_booking_screen.dart';
+import 'package:recycle_app/components/decoration_border_shadow.dart';
+import 'package:recycle_app/components/default_button.dart';
+import 'package:recycle_app/components/info_customer.dart';
+import 'package:recycle_app/core/constants/color_constants.dart';
+import 'package:recycle_app/core/constants/constants.dart';
+import 'package:recycle_app/core/constants/size_constants.dart';
+import 'package:recycle_app/core/constants/strings_constant.dart';
+import 'package:recycle_app/models/booking.dart';
+import 'package:recycle_app/screens/new_design/dashboash/follow_booking/provider/booking_provider.dart';
+import 'package:recycle_app/screens/new_design/detail_booking/detail_booking_screen.dart';
 
 class ItemTracking extends StatelessWidget {
   const ItemTracking({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/models/notication.dart';
-import 'package:shop_app/screens/notifications/components/notification.dart';
-import 'package:shop_app/services/user_service.dart';
+import 'package:recycle_app/models/notication.dart';
+import 'package:recycle_app/screens/notifications/components/notification.dart';
+import 'package:recycle_app/services/user_service.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({Key? key}) : super(key: key);
