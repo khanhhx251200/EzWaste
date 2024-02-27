@@ -1,7 +1,7 @@
 class UrlConstant{
-  static const String LOCAL_BE = '192.168.1.6:8181';
+  static const String LOCAL_BE = '192.168.1.8:8181';
   static const String SERVER_BE = '210.245.96.229:18686';
-  static final String API_URL = 'http://${SERVER_BE}/api';
+  static final String API_URL = 'http://${LOCAL_BE}/api';
   static final String SIGN_IN = 'users/login';
   static final String SIGN_UP = 'users/addUser';
   static final String LOG_OUT = 'users/logOut';

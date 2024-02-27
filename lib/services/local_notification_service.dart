@@ -20,7 +20,7 @@ class LocalNotificationService {
   static Future<void> initialize() async {
     tzData.initializeTimeZones();
     // #1
-    const androidSetting = AndroidInitializationSettings('@mipmap/logo_app');
+    const androidSetting = AndroidInitializationSettings('app_icon');
     const iosSetting = IOSInitializationSettings();
 
     // #2
@@ -69,8 +69,6 @@ class LocalNotificationService {
           UILocalNotificationDateInterpretation.absoluteTime,
       androidAllowWhileIdle: true,
     );
-    print('hihi');
-
   }
 
   void cancelAllNotification() {

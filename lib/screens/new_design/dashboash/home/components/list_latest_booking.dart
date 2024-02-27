@@ -30,6 +30,7 @@ class _ListLatestBookingState extends State<ListLatestBooking> {
           ? ListView.builder(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
+              physics: BouncingScrollPhysics(),
               itemCount: Provider.of<HomePageProvider>(context, listen: false)
                   .lateBookings
                   .length,

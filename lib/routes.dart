@@ -16,6 +16,7 @@ import 'package:recycle_app/screens/new_design/dashboash/account/components/wall
 import 'package:recycle_app/screens/new_design/dashboash/activities/components/filter_calendar.dart';
 import 'package:recycle_app/screens/new_design/dashboash/dashboash_screen.dart';
 import 'package:recycle_app/screens/new_design/detail_booking/detail_booking_screen.dart';
+import 'package:recycle_app/screens/new_design/leaderboard/leaderboard_screen.dart';
 import 'package:recycle_app/screens/notifications/notifications_screen.dart';
 import 'package:recycle_app/screens/otp/otp_screen.dart';
 import 'package:recycle_app/screens/profile/profile_screen.dart';
@@ -54,4 +55,5 @@ final Map<String, WidgetBuilder> routes = {
   BodyBooking.routeName: (context) => const BodyBooking(),
   AccountScreen.routeName: (context) => const AccountScreen(),
   MyWalletScreen.routeName: (context) => const MyWalletScreen(),
+  LeaderBoardScreen.routeName: (context) => const LeaderBoardScreen(),
 };

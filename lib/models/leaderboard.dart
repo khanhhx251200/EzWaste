@@ -2,7 +2,7 @@ class Leaderboard{
   late final String imageUrl;
   late final String fullName;
   late final double topRank;
-  late final int total;
+  late final double total;
 
   Leaderboard({required this.imageUrl, required this.fullName, required this.topRank, required this.total});
 

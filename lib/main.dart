@@ -31,12 +31,7 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   await init();
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  await LocalNotificationService.initialize();
 
-  final firebaseMessaging = FCM();
-  firebaseMessaging.setNotifications();
-  firebaseMessaging.getToken();
 
   runApp(MultiProvider(
     providers: [
@@ -52,7 +47,15 @@ void main() async {
 
 Future init() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+  await LocalNotificationService.initialize();
+
+  final firebaseMessaging = FCM();
+  firebaseMessaging.setNotifications();
+  firebaseMessaging.getToken();
 }
 
 class MyApp extends StatelessWidget {

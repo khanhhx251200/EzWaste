@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomePageProvider>(
       builder: (context, provider, child) => SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Container(
           child: Column(
             children: [
